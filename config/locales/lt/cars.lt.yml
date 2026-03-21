@@ -1,0 +1,600 @@
+---
+lt:
+  account:
+    cars:
+      api:
+        collection_actions: Automobilių grupės veiksmai
+        create: Pridėti naują automobilį
+        destroy: Ištrinti automobilį
+        fields:
+          created_at:
+            _: Pridėta
+            heading: Pridėta
+            label: Pridėta
+          id:
+            heading: Automobilio ID
+          name:
+            _: Pavadinimas
+            api_description: Pavadinimas
+            api_title: Pavadinimas
+            heading: Pavadinimas
+            label: Pavadinimas
+          photo:
+            _: Nuotrauka
+            api_description: Nuotrauka
+            api_title: Nuotrauka
+            heading: Nuotrauka
+            label: Nuotrauka
+          team_id:
+            heading: Komandos ID
+          updated_at:
+            _: Atnaujinta
+            heading: Atnaujinta
+            label: Atnaujinta
+        index: Automobilių sąrašas
+        member_actions: Atskiro automobilio veiksmai
+        show: Gauti automobilį
+        update: Atnaujinti automobilį
+      breadcrumbs:
+        label: Automobiliai
+      buttons:
+        confirmations:
+          destroy: Ar tikrai norite pašalinti %{car_name}? Tai taip pat pašalins visus susijusius įrašus ir negalės būti atšaukta.
+        create: Sukurti automobilį
+        destroy: Pašalinti automobilį
+        edit: Redaguoti automobilį
+        new: Pridėti naują automobilį
+        shorthand:
+          destroy: Ištrinti
+          edit: Redaguoti
+        update: Atnaujinti automobilį
+      car:
+        buttons:
+          confirmations:
+            destroy: Ar tikrai norite pašalinti %{car_name}? Tai taip pat pašalins visus susijusius įrašus ir negalės būti atšaukta.
+          create: Sukurti automobilį
+          destroy: Pašalinti automobilį
+          edit: Redaguoti automobilį
+          new: Pridėti naują automobilį
+          shorthand:
+            destroy: Ištrinti
+            edit: Redaguoti
+          update: Atnaujinti automobilį
+      edit:
+        description: Žemiau galite atnaujinti %{car_name} informaciją ar nustatymus.
+        form:
+          buttons:
+            confirmations:
+              destroy: Ar tikrai norite pašalinti %{car_name}? Tai taip pat pašalins visus susijusius įrašus ir negalės būti atšaukta.
+            create: Sukurti automobilį
+            destroy: Pašalinti automobilį
+            edit: Redaguoti automobilį
+            new: Pridėti naują automobilį
+            shorthand:
+              destroy: Ištrinti
+              edit: Redaguoti
+            update: Atnaujinti automobilį
+          fields:
+            created_at:
+              _: Pridėta
+              heading: Pridėta
+              label: Pridėta
+            id:
+              heading: Automobilio ID
+            name:
+              _: Pavadinimas
+              api_description: Pavadinimas
+              api_title: Pavadinimas
+              heading: Pavadinimas
+              label: Pavadinimas
+            photo:
+              _: Nuotrauka
+              api_description: Nuotrauka
+              api_title: Nuotrauka
+              heading: Nuotrauka
+              label: Nuotrauka
+            team_id:
+              heading: Komandos ID
+            updated_at:
+              _: Atnaujinta
+              heading: Atnaujinta
+              label: Atnaujinta
+        header: Automobilio informacijos redagavimas
+        section: "%{car_name}"
+      fields:
+        created_at:
+          _: Pridėta
+          heading: Pridėta
+          label: Pridėta
+        id:
+          heading: Automobilio ID
+        name:
+          _: Pavadinimas
+          api_description: Pavadinimas
+          api_title: Pavadinimas
+          heading: Pavadinimas
+          label: Pavadinimas
+        photo:
+          _: Nuotrauka
+          api_description: Nuotrauka
+          api_title: Nuotrauka
+          heading: Nuotrauka
+          label: Nuotrauka
+        team_id:
+          heading: Komandos ID
+        updated_at:
+          _: Atnaujinta
+          heading: Atnaujinta
+          label: Atnaujinta
+      form:
+        buttons:
+          confirmations:
+            destroy: Ar tikrai norite pašalinti %{car_name}? Tai taip pat pašalins visus susijusius įrašus ir negalės būti atšaukta.
+          create: Sukurti automobilį
+          destroy: Pašalinti automobilį
+          edit: Redaguoti automobilį
+          new: Pridėti naują automobilį
+          shorthand:
+            destroy: Ištrinti
+            edit: Redaguoti
+          update: Atnaujinti automobilį
+        fields:
+          created_at:
+            _: Pridėta
+            heading: Pridėta
+            label: Pridėta
+          id:
+            heading: Automobilio ID
+          name:
+            _: Pavadinimas
+            api_description: Pavadinimas
+            api_title: Pavadinimas
+            heading: Pavadinimas
+            label: Pavadinimas
+          photo:
+            _: Nuotrauka
+            api_description: Nuotrauka
+            api_title: Nuotrauka
+            heading: Nuotrauka
+            label: Nuotrauka
+          team_id:
+            heading: Komandos ID
+          updated_at:
+            _: Atnaujinta
+            heading: Atnaujinta
+            label: Atnaujinta
+      index:
+        buttons:
+          confirmations:
+            destroy: Ar tikrai norite pašalinti %{car_name}? Tai taip pat pašalins visus susijusius įrašus ir negalės būti atšaukta.
+          create: Sukurti automobilį
+          destroy: Pašalinti automobilį
+          edit: Redaguoti automobilį
+          new: Pridėti naują automobilį
+          shorthand:
+            destroy: Ištrinti
+            edit: Redaguoti
+          update: Atnaujinti automobilį
+        contexts:
+          team:
+            description: Žemiau pateikiamas automobilių sąrašas, pridėtas komandai %{team_name}.
+            description_empty: Komandai %{team_name} dar nepridėta jokių automobilių.
+            header: Automobiliai
+        fields:
+          created_at:
+            _: Pridėta
+            heading: Pridėta
+            label: Pridėta
+          id:
+            heading: Automobilio ID
+          name:
+            _: Pavadinimas
+            api_description: Pavadinimas
+            api_title: Pavadinimas
+            heading: Pavadinimas
+            label: Pavadinimas
+          photo:
+            _: Nuotrauka
+            api_description: Nuotrauka
+            api_title: Nuotrauka
+            heading: Nuotrauka
+            label: Nuotrauka
+          team_id:
+            heading: Komandos ID
+          updated_at:
+            _: Atnaujinta
+            heading: Atnaujinta
+            label: Atnaujinta
+        section: "%{teams_possessive} automobiliai"
+      label: Automobiliai
+      navigation:
+        icon: fal fa-puzzle-piece
+        label: Automobiliai
+      new:
+        description: Įveskite naujo automobilio, kurį norite pridėti prie %{team_name}, informaciją.
+        form:
+          buttons:
+            confirmations:
+              destroy: Ar tikrai norite pašalinti %{car_name}? Tai taip pat pašalins visus susijusius įrašus ir negalės būti atšaukta.
+            create: Sukurti automobilį
+            destroy: Pašalinti automobilį
+            edit: Redaguoti automobilį
+            new: Pridėti naują automobilį
+            shorthand:
+              destroy: Ištrinti
+              edit: Redaguoti
+            update: Atnaujinti automobilį
+          fields:
+            created_at:
+              _: Pridėta
+              heading: Pridėta
+              label: Pridėta
+            id:
+              heading: Automobilio ID
+            name:
+              _: Pavadinimas
+              api_description: Pavadinimas
+              api_title: Pavadinimas
+              heading: Pavadinimas
+              label: Pavadinimas
+            photo:
+              _: Nuotrauka
+              api_description: Nuotrauka
+              api_title: Nuotrauka
+              heading: Nuotrauka
+              label: Nuotrauka
+            team_id:
+              heading: Komandos ID
+            updated_at:
+              _: Atnaujinta
+              heading: Atnaujinta
+              label: Atnaujinta
+        header: Naujo automobilio informacija
+        section: Naujas automobilis komandai %{team_name}
+      notifications:
+        created: Automobilis sėkmingai sukurtas.
+        destroyed: Automobilis sėkmingai pašalintas.
+        updated: Automobilis sėkmingai atnaujintas.
+      show:
+        buttons:
+          confirmations:
+            destroy: Ar tikrai norite pašalinti %{car_name}? Tai taip pat pašalins visus susijusius įrašus ir negalės būti atšaukta.
+          create: Sukurti automobilį
+          destroy: Pašalinti automobilį
+          edit: Redaguoti automobilį
+          new: Pridėti naują automobilį
+          shorthand:
+            destroy: Ištrinti
+            edit: Redaguoti
+          update: Atnaujinti automobilį
+        description: Žemiau pateikiama išsami informacija apie %{car_name}.
+        fields:
+          created_at:
+            _: Pridėta
+            heading: Pridėta
+            label: Pridėta
+          id:
+            heading: Automobilio ID
+          name:
+            _: Pavadinimas
+            api_description: Pavadinimas
+            api_title: Pavadinimas
+            heading: Pavadinimas
+            label: Pavadinimas
+          photo:
+            _: Nuotrauka
+            api_description: Nuotrauka
+            api_title: Nuotrauka
+            heading: Nuotrauka
+            label: Nuotrauka
+          team_id:
+            heading: Komandos ID
+          updated_at:
+            _: Atnaujinta
+            heading: Atnaujinta
+            label: Atnaujinta
+        header: Automobilio informacija
+        manage_description: Čia taip pat rasite parinktis šios informacijos atnaujinimui arba %{car_name} pašalinimui iš %{team_name}.
+        section: "%{car_name}"
+  activerecord:
+    attributes:
+      car:
+        created_at: Pridėta
+        name: Pavadinimas
+        photo: Nuotrauka
+        updated_at: Atnaujinta
+  cars:
+    api:
+      collection_actions: Automobilių grupės veiksmai
+      create: Pridėti naują automobilį
+      destroy: Ištrinti automobilį
+      fields:
+        created_at:
+          _: Pridėta
+          heading: Pridėta
+          label: Pridėta
+        id:
+          heading: Automobilio ID
+        name:
+          _: Pavadinimas
+          api_description: Pavadinimas
+          api_title: Pavadinimas
+          heading: Pavadinimas
+          label: Pavadinimas
+        photo:
+          _: Nuotrauka
+          api_description: Nuotrauka
+          api_title: Nuotrauka
+          heading: Nuotrauka
+          label: Nuotrauka
+        team_id:
+          heading: Komandos ID
+        updated_at:
+          _: Atnaujinta
+          heading: Atnaujinta
+          label: Atnaujinta
+      index: Automobilių sąrašas
+      member_actions: Atskiro automobilio veiksmai
+      show: Gauti automobilį
+      update: Atnaujinti automobilį
+    breadcrumbs:
+      label: Automobiliai
+    buttons:
+      confirmations:
+        destroy: Ar tikrai norite pašalinti %{car_name}? Tai taip pat pašalins visus susijusius įrašus ir negalės būti atšaukta.
+      create: Sukurti automobilį
+      destroy: Pašalinti automobilį
+      edit: Redaguoti automobilį
+      new: Pridėti naują automobilį
+      shorthand:
+        destroy: Ištrinti
+        edit: Redaguoti
+      update: Atnaujinti automobilį
+    car:
+      buttons:
+        confirmations:
+          destroy: Ar tikrai norite pašalinti %{car_name}? Tai taip pat pašalins visus susijusius įrašus ir negalės būti atšaukta.
+        create: Sukurti automobilį
+        destroy: Pašalinti automobilį
+        edit: Redaguoti automobilį
+        new: Pridėti naują automobilį
+        shorthand:
+          destroy: Ištrinti
+          edit: Redaguoti
+        update: Atnaujinti automobilį
+    edit:
+      description: Žemiau galite atnaujinti %{car_name} informaciją ar nustatymus.
+      form:
+        buttons:
+          confirmations:
+            destroy: Ar tikrai norite pašalinti %{car_name}? Tai taip pat pašalins visus susijusius įrašus ir negalės būti atšaukta.
+          create: Sukurti automobilį
+          destroy: Pašalinti automobilį
+          edit: Redaguoti automobilį
+          new: Pridėti naują automobilį
+          shorthand:
+            destroy: Ištrinti
+            edit: Redaguoti
+          update: Atnaujinti automobilį
+        fields:
+          created_at:
+            _: Pridėta
+            heading: Pridėta
+            label: Pridėta
+          id:
+            heading: Automobilio ID
+          name:
+            _: Pavadinimas
+            api_description: Pavadinimas
+            api_title: Pavadinimas
+            heading: Pavadinimas
+            label: Pavadinimas
+          photo:
+            _: Nuotrauka
+            api_description: Nuotrauka
+            api_title: Nuotrauka
+            heading: Nuotrauka
+            label: Nuotrauka
+          team_id:
+            heading: Komandos ID
+          updated_at:
+            _: Atnaujinta
+            heading: Atnaujinta
+            label: Atnaujinta
+      header: Automobilio informacijos redagavimas
+      section: "%{car_name}"
+    fields:
+      created_at:
+        _: Pridėta
+        heading: Pridėta
+        label: Pridėta
+      id:
+        heading: Automobilio ID
+      name:
+        _: Pavadinimas
+        api_description: Pavadinimas
+        api_title: Pavadinimas
+        heading: Pavadinimas
+        label: Pavadinimas
+      photo:
+        _: Nuotrauka
+        api_description: Nuotrauka
+        api_title: Nuotrauka
+        heading: Nuotrauka
+        label: Nuotrauka
+      team_id:
+        heading: Komandos ID
+      updated_at:
+        _: Atnaujinta
+        heading: Atnaujinta
+        label: Atnaujinta
+    form:
+      buttons:
+        confirmations:
+          destroy: Ar tikrai norite pašalinti %{car_name}? Tai taip pat pašalins visus susijusius įrašus ir negalės būti atšaukta.
+        create: Sukurti automobilį
+        destroy: Pašalinti automobilį
+        edit: Redaguoti automobilį
+        new: Pridėti naują automobilį
+        shorthand:
+          destroy: Ištrinti
+          edit: Redaguoti
+        update: Atnaujinti automobilį
+      fields:
+        created_at:
+          _: Pridėta
+          heading: Pridėta
+          label: Pridėta
+        id:
+          heading: Automobilio ID
+        name:
+          _: Pavadinimas
+          api_description: Pavadinimas
+          api_title: Pavadinimas
+          heading: Pavadinimas
+          label: Pavadinimas
+        photo:
+          _: Nuotrauka
+          api_description: Nuotrauka
+          api_title: Nuotrauka
+          heading: Nuotrauka
+          label: Nuotrauka
+        team_id:
+          heading: Komandos ID
+        updated_at:
+          _: Atnaujinta
+          heading: Atnaujinta
+          label: Atnaujinta
+    index:
+      buttons:
+        confirmations:
+          destroy: Ar tikrai norite pašalinti %{car_name}? Tai taip pat pašalins visus susijusius įrašus ir negalės būti atšaukta.
+        create: Sukurti automobilį
+        destroy: Pašalinti automobilį
+        edit: Redaguoti automobilį
+        new: Pridėti naują automobilį
+        shorthand:
+          destroy: Ištrinti
+          edit: Redaguoti
+        update: Atnaujinti automobilį
+      contexts:
+        team:
+          description: Žemiau pateikiamas automobilių sąrašas, pridėtas komandai %{team_name}.
+          description_empty: Komandai %{team_name} dar nepridėta jokių automobilių.
+          header: Automobiliai
+      fields:
+        created_at:
+          _: Pridėta
+          heading: Pridėta
+          label: Pridėta
+        id:
+          heading: Automobilio ID
+        name:
+          _: Pavadinimas
+          api_description: Pavadinimas
+          api_title: Pavadinimas
+          heading: Pavadinimas
+          label: Pavadinimas
+        photo:
+          _: Nuotrauka
+          api_description: Nuotrauka
+          api_title: Nuotrauka
+          heading: Nuotrauka
+          label: Nuotrauka
+        team_id:
+          heading: Komandos ID
+        updated_at:
+          _: Atnaujinta
+          heading: Atnaujinta
+          label: Atnaujinta
+      section: "%{teams_possessive} automobiliai"
+    label: Automobiliai
+    navigation:
+      icon: fal fa-puzzle-piece
+      label: Automobiliai
+    new:
+      description: Įveskite naujo automobilio, kurį norite pridėti prie %{team_name}, informaciją.
+      form:
+        buttons:
+          confirmations:
+            destroy: Ar tikrai norite pašalinti %{car_name}? Tai taip pat pašalins visus susijusius įrašus ir negalės būti atšaukta.
+          create: Sukurti automobilį
+          destroy: Pašalinti automobilį
+          edit: Redaguoti automobilį
+          new: Pridėti naują automobilį
+          shorthand:
+            destroy: Ištrinti
+            edit: Redaguoti
+          update: Atnaujinti automobilį
+        fields:
+          created_at:
+            _: Pridėta
+            heading: Pridėta
+            label: Pridėta
+          id:
+            heading: Automobilio ID
+          name:
+            _: Pavadinimas
+            api_description: Pavadinimas
+            api_title: Pavadinimas
+            heading: Pavadinimas
+            label: Pavadinimas
+          photo:
+            _: Nuotrauka
+            api_description: Nuotrauka
+            api_title: Nuotrauka
+            heading: Nuotrauka
+            label: Nuotrauka
+          team_id:
+            heading: Komandos ID
+          updated_at:
+            _: Atnaujinta
+            heading: Atnaujinta
+            label: Atnaujinta
+      header: Naujo automobilio informacija
+      section: Naujas automobilis komandai %{team_name}
+    notifications:
+      created: Automobilis sėkmingai sukurtas.
+      destroyed: Automobilis sėkmingai pašalintas.
+      updated: Automobilis sėkmingai atnaujintas.
+    show:
+      buttons:
+        confirmations:
+          destroy: Ar tikrai norite pašalinti %{car_name}? Tai taip pat pašalins visus susijusius įrašus ir negalės būti atšaukta.
+        create: Sukurti automobilį
+        destroy: Pašalinti automobilį
+        edit: Redaguoti automobilį
+        new: Pridėti naują automobilį
+        shorthand:
+          destroy: Ištrinti
+          edit: Redaguoti
+        update: Atnaujinti automobilį
+      description: Žemiau pateikiama išsami informacija apie %{car_name}.
+      fields:
+        created_at:
+          _: Pridėta
+          heading: Pridėta
+          label: Pridėta
+        id:
+          heading: Automobilio ID
+        name:
+          _: Pavadinimas
+          api_description: Pavadinimas
+          api_title: Pavadinimas
+          heading: Pavadinimas
+          label: Pavadinimas
+        photo:
+          _: Nuotrauka
+          api_description: Nuotrauka
+          api_title: Nuotrauka
+          heading: Nuotrauka
+          label: Nuotrauka
+        team_id:
+          heading: Komandos ID
+        updated_at:
+          _: Atnaujinta
+          heading: Atnaujinta
+          label: Atnaujinta
+      header: Automobilio informacija
+      manage_description: Čia taip pat rasite parinktis šios informacijos atnaujinimui arba %{car_name} pašalinimui iš %{team_name}.
+      section: "%{car_name}"

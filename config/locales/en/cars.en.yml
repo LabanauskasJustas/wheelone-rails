@@ -1,0 +1,100 @@
+en:
+  cars: &cars
+    label: &label Cars
+    breadcrumbs:
+      label: *label
+    navigation:
+      label: *label
+      icon: fal fa-puzzle-piece
+    buttons: &buttons
+      new: Add New Car
+      create: Create Car
+      edit: Edit Car
+      update: Update Car
+      destroy: Remove Car
+      shorthand:
+        edit: Edit
+        destroy: Delete
+      confirmations:
+        # TODO customize for your use-case.
+        destroy: Are you sure you want to remove %{car_name}? This will also remove any child resources and can't be undone.
+    car:
+      buttons: *buttons
+    fields: &fields
+      id:
+        heading: Car ID
+      team_id:
+        heading: Team ID
+      name:
+        _: &name Name
+        label: *name
+        heading: *name
+        api_title: *name
+        api_description: *name
+      photo:
+        _: &photo Photo
+        label: *photo
+        heading: *photo
+        api_title: *photo
+        api_description: *photo
+      # 🚅 super scaffolding will insert new fields above this line.
+      created_at:
+        _: &created_at Added
+        label: *created_at
+        heading: *created_at
+      updated_at:
+        _: &updated_at Updated
+        label: *updated_at
+        heading: *updated_at
+    api:
+      collection_actions: "Collection Actions for Cars"
+      index: "List Cars"
+      create: "Add a New Car"
+      member_actions: "Actions for an Individual Car"
+      show: "Retrieve a Car"
+      update: "Update a Car"
+      destroy: "Delete a Car"
+      fields: *fields
+    index:
+      section: "%{teams_possessive} Cars"
+      contexts:
+        team:
+          header: Cars
+          description: Below is a list of Cars that have been added for %{team_name}.
+          description_empty: No Cars have been added for %{team_name}.
+      fields: *fields
+      buttons: *buttons
+    show:
+      section: "%{car_name}"
+      header: Car Details
+      description: Below are the details we have for %{car_name}.
+      manage_description: You'll also find options for updating these details or removing %{car_name} from %{team_name} entirely.
+      fields: *fields
+      buttons: *buttons
+    form: &form
+      buttons: *buttons
+      fields: *fields
+    new:
+      section: "New Car for %{team_name}"
+      header: New Car Details
+      description: Please provide the details of the new Car you'd like to add to %{team_name}.
+      form: *form
+    edit:
+      section: "%{car_name}"
+      header: Edit Car Details
+      description: You can update the details or settings for %{car_name} below.
+      form: *form
+    notifications:
+      created: Car was successfully created.
+      updated: Car was successfully updated.
+      destroyed: Car was successfully destroyed.
+  account:
+    cars: *cars
+  activerecord:
+    attributes:
+      car:
+        name: *name
+        photo: *photo
+        # 🚅 super scaffolding will insert new activerecord attributes above this line.
+        created_at: *created_at
+        updated_at: *updated_at

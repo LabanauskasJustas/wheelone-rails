@@ -1,0 +1,100 @@
+en:
+  rims: &rims
+    label: &label Rims
+    breadcrumbs:
+      label: *label
+    navigation:
+      label: *label
+      icon: fal fa-puzzle-piece
+    buttons: &buttons
+      new: Add New Rim
+      create: Create Rim
+      edit: Edit Rim
+      update: Update Rim
+      destroy: Remove Rim
+      shorthand:
+        edit: Edit
+        destroy: Delete
+      confirmations:
+        # TODO customize for your use-case.
+        destroy: Are you sure you want to remove %{rim_name}? This will also remove any child resources and can't be undone.
+    rim:
+      buttons: *buttons
+    fields: &fields
+      id:
+        heading: Rim ID
+      team_id:
+        heading: Team ID
+      name:
+        _: &name Name
+        label: *name
+        heading: *name
+        api_title: *name
+        api_description: *name
+      photo:
+        _: &photo Photo
+        label: *photo
+        heading: *photo
+        api_title: *photo
+        api_description: *photo
+      # 🚅 super scaffolding will insert new fields above this line.
+      created_at:
+        _: &created_at Added
+        label: *created_at
+        heading: *created_at
+      updated_at:
+        _: &updated_at Updated
+        label: *updated_at
+        heading: *updated_at
+    api:
+      collection_actions: "Collection Actions for Rims"
+      index: "List Rims"
+      create: "Add a New Rim"
+      member_actions: "Actions for an Individual Rim"
+      show: "Retrieve a Rim"
+      update: "Update a Rim"
+      destroy: "Delete a Rim"
+      fields: *fields
+    index:
+      section: "%{teams_possessive} Rims"
+      contexts:
+        team:
+          header: Rims
+          description: Below is a list of Rims that have been added for %{team_name}.
+          description_empty: No Rims have been added for %{team_name}.
+      fields: *fields
+      buttons: *buttons
+    show:
+      section: "%{rim_name}"
+      header: Rim Details
+      description: Below are the details we have for %{rim_name}.
+      manage_description: You'll also find options for updating these details or removing %{rim_name} from %{team_name} entirely.
+      fields: *fields
+      buttons: *buttons
+    form: &form
+      buttons: *buttons
+      fields: *fields
+    new:
+      section: "New Rim for %{team_name}"
+      header: New Rim Details
+      description: Please provide the details of the new Rim you'd like to add to %{team_name}.
+      form: *form
+    edit:
+      section: "%{rim_name}"
+      header: Edit Rim Details
+      description: You can update the details or settings for %{rim_name} below.
+      form: *form
+    notifications:
+      created: Rim was successfully created.
+      updated: Rim was successfully updated.
+      destroyed: Rim was successfully destroyed.
+  account:
+    rims: *rims
+  activerecord:
+    attributes:
+      rim:
+        name: *name
+        photo: *photo
+        # 🚅 super scaffolding will insert new activerecord attributes above this line.
+        created_at: *created_at
+        updated_at: *updated_at

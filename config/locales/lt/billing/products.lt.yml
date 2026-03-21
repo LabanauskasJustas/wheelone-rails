@@ -1,0 +1,18 @@
+---
+lt:
+  billing/products:
+    basic:
+      description: Tai pavyzdinis planas, kuris, mokant kas mėnesį, apima nemokamą bandomąjį laikotarpį.
+      features:
+      - Pateikiama kaina vienam komandos nariui.
+      - Leidžia sukurti iki penkiasdešimties „kūrybinių koncepcijų“.
+      - Švelnus to apribojimo taikymas.
+      name: Pagrindinis
+    free:
+      name: Nemokamai
+    pro:
+      description: Patobulintas pavyzdinis planas, kuriame parodytos įvairios funkcijos.
+      features:
+      - Nurodyta fiksuota kaina, skirta iki dešimties komandos narių.
+      - Leidžia kurti neribotą skaičių „kūrybinių koncepcijų“.
+      name: "„Pro“"

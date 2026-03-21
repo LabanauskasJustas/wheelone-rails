@@ -1,0 +1,14 @@
+---
+lt:
+  application:
+    description: Automobilių ratlankių vizualizavimo sistema
+    key: wheelone
+    keywords: automobiliai ratlankiai vizualizacija
+    name: WheelOne
+    owner: Justas Labanauskas
+    support_email: change.me@localhost
+  webhooks/outgoing/endpoints:
+    fields:
+      api_version:
+        options:
+          '1': V1

@@ -1,0 +1,27 @@
+---
+lt:
+  user_mailer:
+    invited:
+      body:
+        html: "<p> %{inviter_name} has invited you to join %{team_name} on Untitled Application. You can join %{team_name} by clicking the button below. </p>"
+      cta:
+        label: Prisijunkite prie „%{team_name}“
+      heading: Kviečiame!
+      preview: "%{inviter_name} Jums šį kvietimą atsiuntė."
+      signature:
+        html: <p>If you have any questions, please don't hesitate to <a href="mailto:%{support_email}">send us an email</a>.</p> <p>Thanks,<br>The Untitled Application Team</p>
+      subject: Kvietimas prisijungti prie „%{team_name}“ programos „Untitled Application“!
+    signature:
+      html: <p>If you have any questions, please don't hesitate to <a href="mailto:%{support_email}">send us an email</a>.</p> <p>Thanks,<br>The Untitled Application Team</p>
+    welcome:
+      body:
+        html: <p>This is the default welcome email! The content of this welcome email can be updated in `config/locales/en/user_mailer.en.yml`.</p> <p>Thanks to the team at <a href="https://postmarkapp.com">Postmark</a> for making the original foundation for this email template <a href="https://github.com/wildbit/postmark-templates">freely available</a>.</p>
+      cta:
+        body: Naudodamiesi šia nuoroda galite grįžti į savo paskyros valdymo skydą.
+        heading: Kas toliau?
+        label: Peržiūrėti savo paskyros informacijos suvestinę
+      heading: Sveiki atvykę į „Untitled Application“!
+      preview: Šiame laiške pateikiama informacija apie tai, kaip pradėti naudotis savo paskyra.
+      signature:
+        html: <p>If you have any questions, please don't hesitate to <a href="mailto:%{support_email}">send us an email</a>.</p> <p>Thanks,<br>The Untitled Application Team</p>
+      subject: Sveiki atvykę į „Untitled Application“!

@@ -1,0 +1,9 @@
+---
+lt:
+  activerecord:
+    attributes:
+      membership:
+        _:
+  memberships:
+    fields:
+      _:

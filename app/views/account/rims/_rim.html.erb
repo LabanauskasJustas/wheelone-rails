@@ -1,0 +1,26 @@
+<% team = @team || @team %>
+<% context ||= team %>
+<% collection ||= :rims %>
+<% hide_actions ||= false %>
+<% hide_back ||= false %>
+
+<% with_attribute_settings object: rim do %>
+  <tr data-id="<%= rim.id %>" class="group">
+    <%= render "shared/tables/checkbox", object: rim %>
+    <td><%= render 'shared/attributes/text', attribute: :name, url: [:account, rim] %></td>
+    <td><%= render 'shared/attributes/file', attribute: :photo %></td>
+    <%# 🚅 super scaffolding will insert new fields above this line. %>
+    <td><%= render 'shared/attributes/date_and_time', attribute: :created_at %></td>
+    <td class="buttons">
+      <% unless hide_actions %>
+        <% if can? :edit, rim %>
+          <%= link_to t('.buttons.shorthand.edit'), [:edit, :account, rim], class: 'button-secondary button-smaller' %>
+        <% end %>
+        <% if can? :destroy, rim %>
+          <%= button_to t('.buttons.shorthand.destroy'), [:account, rim], method: :delete, data: { turbo_confirm: t('.buttons.confirmations.destroy', model_locales(rim)) }, class: 'button-secondary button-smaller' %>
+        <% end %>
+        <%# 🚅 super scaffolding will insert new action model buttons above this line. %>
+      <% end %>
+    </td>
+  </tr>
+<% end %>

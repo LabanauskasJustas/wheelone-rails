@@ -164,6 +164,10 @@ group :development do
   # Open any sent emails in your browser instead of having to setup an SMTP trap.
   gem "letter_opener"
 
+  # i18n management and auto-translation via DeepL.
+  gem "i18n-tasks", "~> 1.0", require: false
+  gem "deepl-rb", require: false
+
   # Ruby formatter. Try `standardrb --fix`.
   gem "standard"
 
