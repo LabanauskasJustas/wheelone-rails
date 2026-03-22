@@ -5,7 +5,7 @@ en:
       label: *label
     navigation:
       label: *label
-      icon: fal fa-puzzle-piece
+      icon: ti ti-car
     buttons: &buttons
       new: Add New Car
       create: Create Car
@@ -25,12 +25,24 @@ en:
         heading: Car ID
       team_id:
         heading: Team ID
-      name:
-        _: &name Name
-        label: *name
-        heading: *name
-        api_title: *name
-        api_description: *name
+      year:
+        _: &year Year
+        label: *year
+        heading: *year
+        api_title: *year
+        api_description: *year
+      brand:
+        _: &brand Brand
+        label: *brand
+        heading: *brand
+        api_title: *brand
+        api_description: *brand
+      model:
+        _: &model Model
+        label: *model
+        heading: *model
+        api_title: *model
+        api_description: *model
       photo:
         _: &photo Photo
         label: *photo
@@ -93,7 +105,9 @@ en:
   activerecord:
     attributes:
       car:
-        name: *name
+        year: *year
+        brand: *brand
+        model: *model
         photo: *photo
         # 🚅 super scaffolding will insert new activerecord attributes above this line.
         created_at: *created_at

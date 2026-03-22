@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_03_21_210352) do
+ActiveRecord::Schema[8.0].define(version: 2026_03_22_170014) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -86,9 +86,11 @@ ActiveRecord::Schema[8.0].define(version: 2026_03_21_210352) do
 
   create_table "cars", force: :cascade do |t|
     t.bigint "team_id", null: false
-    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "brand", null: false
+    t.string "model", null: false
+    t.integer "year"
     t.index ["team_id"], name: "index_cars_on_team_id"
   end
 

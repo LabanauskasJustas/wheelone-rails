@@ -75,8 +75,9 @@ Object.assign(themeConfig.theme.extend.colors, {
   "on-surface":             "#191c1e",
   "surface-dim":            "#d8dadc",
   "inverse-surface":        "#2d3133",
-  // primary.DEFAULT enables `text-primary` while keeping `text-primary-600` from BT
-  "primary": { "DEFAULT": "#003ea7" },
+  // DEFAULT enables `text-primary` / `text-secondary` while keeping BT's shaded variants
+  "primary":   { "DEFAULT": "#003ea7" },
+  "secondary": { "DEFAULT": "#4a5c94" },
 })
 
 // Ensure app/components is scanned for Tailwind classes

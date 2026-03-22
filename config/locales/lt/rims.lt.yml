@@ -196,7 +196,7 @@ lt:
         section: "%{teams_possessive} ratlankiai"
       label: Ratlankiai
       navigation:
-        icon: fal fa-puzzle-piece
+        icon: ti ti-reload
         label: Ratlankiai
       new:
         description: Įveskite naujo ratlankio, kurį norite pridėti prie %{team_name}, informaciją.
@@ -498,7 +498,7 @@ lt:
       section: "%{teams_possessive} ratlankiai"
     label: Ratlankiai
     navigation:
-      icon: fal fa-puzzle-piece
+      icon: ti ti-reload
       label: Ratlankiai
     new:
       description: Įveskite naujo ratlankio, kurį norite pridėti prie %{team_name}, informaciją.

@@ -44,7 +44,9 @@ if defined?(Api::V1::ApplicationController)
       def car_params
         strong_params = params.require(:car).permit(
           *permitted_fields,
-          :name,
+          :brand,
+          :model,
+          :year,
           :photo,
           :photo_removal,
           # 🚅 super scaffolding will insert new fields above this line.

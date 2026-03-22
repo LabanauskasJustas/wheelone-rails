@@ -5,7 +5,7 @@ lt:
       label: *label
     navigation:
       label: *label
-      icon: fal fa-puzzle-piece
+      icon: ti ti-eye
     buttons: &buttons
       new: Pridėti naują vizualizaciją
       create: Sukurti vizualizaciją

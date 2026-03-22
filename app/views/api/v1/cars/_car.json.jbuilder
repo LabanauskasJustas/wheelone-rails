@@ -1,7 +1,9 @@
 json.extract! car,
   :id,
   :team_id,
-  :name,
+  :brand,
+  :model,
+  :year,
   # 🚅 super scaffolding will insert new fields above this line.
   :created_at,
   :updated_at

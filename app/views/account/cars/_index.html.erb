@@ -26,7 +26,8 @@
                 show_path: [:account, car],
                 edit_path: can?(:edit, car) ? [:edit, :account, car] : nil,
                 image: car.photo.attached? ? rails_blob_url(car.photo) : nil,
-                title: car.display_name
+                title: car.brand,
+                subtitle: [car.model, car.year].compact.join(" · ")
               ) %>
             <% end %>
           </div>

@@ -1,50 +1,74 @@
 <div class="group relative rounded-lg overflow-hidden shadow-[0px_8px_24px_rgba(0,62,167,0.08)] hover:shadow-[0px_16px_32px_rgba(0,62,167,0.14)] transition-shadow duration-300">
 
   <%# Hero image %>
-  <div class="relative h-48 w-full overflow-hidden bg-base-200 dark:bg-base-700">
+  <div class="relative h-48 w-full overflow-hidden bg-surface-container">
     <% if image.present? %>
       <%= image_tag image, class: "w-full h-full object-cover group-hover:scale-105 transition-transform duration-500", alt: title %>
     <% else %>
       <div class="w-full h-full flex items-center justify-center">
-        <span class="material-symbols-outlined text-6xl text-base-400">photo_camera</span>
+        <span class="material-symbols-outlined text-6xl text-outline">photo_camera</span>
       </div>
     <% end %>
-
-    <%# Bottom gradient fade %>
-    <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none"></div>
-
-    <%# Pill badge — top right %>
-    <% if badge.present? %>
-      <div class="absolute top-4 right-4">
-        <span class="bg-white/80 dark:bg-base-800/80 backdrop-blur-md px-3 py-1 rounded-full font-label text-[10px] font-bold tracking-[0.05em] text-primary-600 dark:text-primary-400 shadow-sm uppercase">
-          <%= badge %>
-        </span>
-      </div>
-    <% end %>
+    <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none"></div>
   </div>
 
-  <%# Glass card body pulling up over the image %>
+  <%# Glass card body %>
   <div class="relative px-5 pb-5 -mt-8 z-10">
-    <div class="glass-card rounded-lg px-5 py-4 shadow-md">
+    <div class="glass-card rounded-lg px-5 py-4 shadow-md border border-white/20">
 
-      <%# Title %>
-      <h3 class="font-headline font-[700] text-base tracking-tight text-md-on-surface uppercase truncate mb-1">
-        <% if show_path.present? %>
-          <%= link_to title, show_path, data: { turbo_frame: "modal" }, class: "hover:text-primary-600 transition-colors after:absolute after:inset-0 after:z-0" %>
-        <% else %>
-          <%= title %>
+      <%# Title + badge row %>
+      <div class="flex items-start justify-between gap-2 mb-1">
+        <h3 class="font-headline font-bold text-base tracking-tight text-on-surface uppercase truncate">
+          <% if show_path.present? %>
+            <%= link_to title, show_path, data: { turbo_frame: "modal" }, class: "hover:text-primary transition-colors after:absolute after:inset-0 after:z-0" %>
+          <% else %>
+            <%= title %>
+          <% end %>
+        </h3>
+        <% if badge.present? %>
+          <span class="<%= badge_classes %> flex-shrink-0"><%= badge %></span>
         <% end %>
-      </h3>
+      </div>
 
       <% if subtitle.present? %>
-        <p class="font-label text-xs text-md-on-surface-variant truncate mb-3"><%= subtitle %></p>
+        <p class="font-label text-xs text-on-surface-variant truncate mb-2"><%= subtitle %></p>
       <% end %>
 
-      <% if edit_path.present? %>
-        <div class="flex justify-end mt-2 relative z-10">
-          <%= link_to edit_path, class: "inline-flex items-center gap-1 text-xs font-semibold text-primary-600 dark:text-primary-400 hover:underline" do %>
-            <span class="material-symbols-outlined" style="font-size: 14px;">edit</span>
-            <%= t("global.buttons.edit") %>
+      <%# Stats grid %>
+      <% if stats.any? %>
+        <div class="grid grid-cols-2 gap-2 mt-3 mb-3">
+          <% stats.each do |stat| %>
+            <div class="bg-surface-container-low p-2.5 rounded-xl">
+              <p class="text-[9px] font-bold font-label text-outline uppercase mb-0.5"><%= stat[:label] %></p>
+              <p class="text-xs font-bold font-headline truncate"><%= stat[:value] %></p>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+
+      <%# Action buttons %>
+      <% if show_path.present? || edit_path.present? || delete_path.present? %>
+        <div class="flex gap-2 mt-3 relative z-10">
+          <% if show_path.present? %>
+            <%= link_to show_path,
+                  class: "flex-1 flex items-center justify-center bg-surface-container-high p-2 rounded-lg hover:bg-surface-container-highest transition-colors",
+                  data: { turbo_frame: "_top" } do %>
+              <span class="material-symbols-outlined text-on-surface-variant" style="font-size: 20px;">visibility</span>
+            <% end %>
+          <% end %>
+          <% if edit_path.present? %>
+            <%= link_to edit_path,
+                  class: "flex-1 flex items-center justify-center bg-surface-container-high p-2 rounded-lg hover:bg-surface-container-highest transition-colors",
+                  data: { turbo_frame: "_top" } do %>
+              <span class="material-symbols-outlined text-on-surface-variant" style="font-size: 20px;">edit</span>
+            <% end %>
+          <% end %>
+          <% if delete_path.present? %>
+            <%= link_to delete_path,
+                  class: "flex-1 flex items-center justify-center bg-surface-container-high p-2 rounded-lg hover:bg-red-50 transition-colors group/del",
+                  data: { turbo_method: :delete, turbo_confirm: delete_confirm, turbo_frame: "_top" } do %>
+              <span class="material-symbols-outlined text-on-surface-variant group-hover/del:text-red-600" style="font-size: 20px;">delete</span>
+            <% end %>
           <% end %>
         </div>
       <% end %>

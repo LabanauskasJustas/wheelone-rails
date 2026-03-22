@@ -1,18 +1,152 @@
 <% cancel_path ||= car.persisted? ? [:account, car] : [:account, @team, :cars] %>
 
-<%= form_with model: car, url: (car.persisted? ? [:account, car] : [:account, @team, :cars]), class: 'form' do |form| %>
+<%= form_with model: car, url: (car.persisted? ? [:account, car] : [:account, @team, :cars]) do |form| %>
   <%= render "shared/limits/form", form: form, cancel_path: cancel_path do %>
     <%= render 'account/shared/forms/errors', form: form %>
 
-    <% with_field_settings form: form do %>
-      <%= render 'shared/fields/text_field', method: :name, options: {autofocus: true} %>
-      <%= render 'shared/fields/file_field', method: :photo %>
-      <%# 🚅 super scaffolding will insert new fields above this line. %>
-    <% end %>
+    <div class="glass-card rounded-[2rem] shadow-[0px_24px_48px_rgba(0,62,167,0.05)] p-8 md:p-12">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
 
-    <div class="buttons">
-      <%= form.submit (form.object.persisted? ? t('.buttons.update') : t('.buttons.create')), class: "button" %>
-      <%= link_to t('global.buttons.cancel'), cancel_path, class: "button-secondary" %>
+        <%# ── Left column: vehicle details ─────────────────────────── %>
+        <section class="bg-[#f2f4f6] rounded-2xl p-6 space-y-8">
+          <header class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-primary text-2xl">edit_note</span>
+            <h2 class="font-headline text-xl font-semibold tracking-tight text-on-surface">Automobilio informacija</h2>
+          </header>
+
+          <div class="space-y-6">
+
+            <%# Brand + Model — side by side %>
+            <div class="grid grid-cols-2 gap-4">
+              <div class="space-y-2">
+                <%= form.label :brand, t('.fields.brand.label'),
+                      class: "block font-label text-[10px] uppercase tracking-widest text-outline pl-1" %>
+                <%= form.text_field :brand,
+                      autofocus: true,
+                      placeholder: "e.g. BMW",
+                      class: "w-full !bg-[#e0e3e5] border-0 ring-0 shadow-none rounded-2xl px-4 py-3.5 focus:ring-2 focus:ring-primary/20 focus:ring-offset-0 focus:border-0 transition-all outline-none text-on-surface placeholder:text-outline/50" %>
+              </div>
+              <div class="space-y-2">
+                <%= form.label :model, t('.fields.model.label'),
+                      class: "block font-label text-[10px] uppercase tracking-widest text-outline pl-1" %>
+                <%= form.text_field :model,
+                      placeholder: "e.g. 540i",
+                      class: "w-full !bg-[#e0e3e5] border-0 ring-0 shadow-none rounded-2xl px-4 py-3.5 focus:ring-2 focus:ring-primary/20 focus:ring-offset-0 focus:border-0 transition-all outline-none text-on-surface placeholder:text-outline/50" %>
+              </div>
+            </div>
+
+            <%# Year — full width with calendar icon %>
+            <div class="space-y-2">
+              <%= form.label :year, t('.fields.year.label'),
+                    class: "block font-label text-[10px] uppercase tracking-widest text-outline pl-1" %>
+              <div class="relative">
+                <%= form.number_field :year,
+                      placeholder: Time.current.year.to_s,
+                      min: 1886, max: Time.current.year + 1, step: 1,
+                      class: "w-full !bg-[#e0e3e5] border-0 ring-0 shadow-none rounded-2xl px-4 py-3.5 pr-12 focus:ring-2 focus:ring-primary/20 focus:ring-offset-0 focus:border-0 transition-all outline-none text-on-surface placeholder:text-outline/50" %>
+                <span class="absolute right-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline pointer-events-none"
+                      style="font-size: 18px;">calendar_today</span>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <%# ── Right column: photo ───────────────────────────────────── %>
+        <% photo_attached = car.persisted? && car.photo.attached? %>
+        <section class="bg-[#f2f4f6] rounded-2xl p-6 space-y-6 flex flex-col"
+                 id="car-photo-section">
+          <header class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-primary text-2xl">photo_camera</span>
+            <h2 class="font-headline text-xl font-semibold tracking-tight text-on-surface">Automobilio nuotrauka</h2>
+          </header>
+
+          <%# Hidden file input — always present %>
+          <%= form.file_field :photo, id: "car_photo", accept: "image/*", class: "sr-only" %>
+
+          <script>
+            (function() {
+              function setupPhotoPreview() {
+                var input    = document.getElementById("car_photo");
+                var filled   = document.getElementById("car-photo-filled");
+                var dropzone = document.getElementById("car-photo-dropzone");
+                var preview  = document.getElementById("car-photo-preview");
+                var filename = document.getElementById("car-photo-filename");
+                if (!input || input._photoPreviewBound) return;
+                input._photoPreviewBound = true;
+                input.addEventListener("change", function() {
+                  var file = input.files[0];
+                  if (!file) return;
+                  preview.src = URL.createObjectURL(file);
+                  filename.textContent = file.name;
+                  filled.classList.remove("hidden");
+                  filled.classList.add("flex");
+                  dropzone.classList.add("hidden");
+                  dropzone.classList.remove("flex");
+                });
+              }
+              document.addEventListener("turbo:load", setupPhotoPreview);
+              document.addEventListener("DOMContentLoaded", setupPhotoPreview);
+            })();
+          </script>
+
+          <%# ── Filled state ──────────────────────────────────────── %>
+          <div id="car-photo-filled"
+               class="flex-grow flex-col gap-4 <%= photo_attached ? 'flex' : 'hidden' %>">
+            <img id="car-photo-preview"
+                 src="<%= photo_attached ? rails_blob_url(car.photo) : '' %>"
+                 class="h-56 w-full object-cover rounded-2xl" />
+            <p id="car-photo-filename"
+               class="font-label text-[11px] text-outline truncate"><%= photo_attached ? car.photo.filename : '' %></p>
+            <div class="flex gap-3">
+              <label for="car_photo"
+                     class="cursor-pointer inline-flex items-center gap-1.5 bg-[#eceef0] hover:bg-[#e0e3e5] text-on-surface font-label text-xs font-medium px-4 py-2.5 rounded-xl transition-colors">
+                <span class="material-symbols-outlined" style="font-size: 15px;">upload_file</span>
+                Pakeisti failą
+              </label>
+              <label class="cursor-pointer inline-flex items-center gap-1.5 bg-[#eceef0] hover:bg-[#e0e3e5] text-on-surface font-label text-xs font-medium px-4 py-2.5 rounded-xl transition-colors has-[:checked]:bg-red-50 has-[:checked]:text-red-600">
+                <%= form.check_box :photo_removal, { class: "sr-only" }, "1", "0" %>
+                <span class="material-symbols-outlined" style="font-size: 15px;">delete</span>
+                Pašalinti failą
+              </label>
+            </div>
+          </div>
+
+          <%# ── Empty state — full-area clickable dropzone ─────────── %>
+          <label for="car_photo"
+                 id="car-photo-dropzone"
+                 class="flex-grow relative flex-col items-center justify-center border-2 border-dashed border-[#c3c6d7]/50 bg-[#eceef0] rounded-2xl min-h-[280px] cursor-pointer hover:bg-[#e6e8ea] transition-colors overflow-hidden group <%= photo_attached ? 'hidden' : 'flex' %>">
+
+            <%# Centered upload prompt %>
+            <div class="relative z-10 flex flex-col items-center text-center px-6 pointer-events-none">
+              <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform duration-300 mb-4">
+                <span class="material-symbols-outlined text-primary text-3xl">cloud_upload</span>
+              </div>
+              <p class="font-body font-medium text-on-surface text-sm mb-1">Spauskite arba įkelkite nuotrauką</p>
+              <p class="font-label text-[11px] text-outline">Rekomenduojama: PNG, JPG (Max 10MB)</p>
+            </div>
+
+            <%# Ghost silhouette %>
+            <div class="absolute inset-0 flex items-center justify-center opacity-[0.03] pointer-events-none select-none">
+              <span class="material-symbols-outlined" style="font-size: 240px;">directions_car</span>
+            </div>
+
+          </label>
+
+        </section>
+      </div>
+
+      <%# ── Footer actions ─────────────────────────────────────────── %>
+      <footer class="mt-12 pt-8 border-t border-outline-variant/30 flex items-center justify-between">
+        <%= link_to t('global.buttons.cancel'), cancel_path,
+              class: "font-label text-sm text-outline hover:text-on-surface transition-colors" %>
+
+        <button type="submit" class="primary-gradient text-white px-10 py-4 rounded-2xl font-headline font-bold text-base shadow-lg shadow-primary/20 hover:shadow-xl active:scale-95 transition-all flex items-center gap-2 group cursor-pointer">
+          <span><%= form.object.persisted? ? t('.buttons.update') : t('.buttons.create') %></span>
+          <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" style="font-size: 20px;">arrow_forward</span>
+        </button>
+      </footer>
+
     </div>
   <% end %>
 <% end %>

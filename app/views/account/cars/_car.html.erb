@@ -7,7 +7,8 @@
 <% with_attribute_settings object: car do %>
   <tr data-id="<%= car.id %>" class="group">
     <%= render "shared/tables/checkbox", object: car %>
-    <td><%= render 'shared/attributes/text', attribute: :name, url: [:account, car] %></td>
+    <td><%= render 'shared/attributes/text', attribute: :brand, url: [:account, car] %></td>
+    <td><%= render 'shared/attributes/text', attribute: :model %></td>
     <td><%= render 'shared/attributes/file', attribute: :photo %></td>
     <%# 🚅 super scaffolding will insert new fields above this line. %>
     <td><%= render 'shared/attributes/date_and_time', attribute: :created_at %></td>

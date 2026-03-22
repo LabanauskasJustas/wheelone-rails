@@ -10,6 +10,7 @@ class Account::CarsController < Account::ApplicationController
   # GET /account/cars/:id
   # GET /account/cars/:id.json
   def show
+    @visualizations = @car.visualizations.accessible_by(current_ability).recent
     delegate_json_to_api
   end
 
@@ -66,6 +67,7 @@ class Account::CarsController < Account::ApplicationController
   end
 
   def process_params(strong_params)
+    strong_params.delete(:photo) if strong_params[:photo].blank?
     # 🚅 super scaffolding will insert processing for new fields above this line.
   end
 end

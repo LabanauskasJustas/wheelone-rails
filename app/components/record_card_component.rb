@@ -1,16 +1,21 @@
 class RecordCardComponent < ViewComponent::Base
-  attr_reader :record, :show_path, :edit_path, :image, :title, :subtitle, :badge, :badge_color
+  attr_reader :record, :show_path, :edit_path, :delete_path, :delete_confirm,
+              :image, :title, :subtitle, :badge, :badge_color, :stats
 
   # badge_color: one of "gray" | "yellow" | "blue" | "green" | "red"
-  def initialize(record:, show_path:, edit_path: nil, image: nil, title:, subtitle: nil, badge: nil, badge_color: "gray")
+  def initialize(record:, show_path:, edit_path: nil, delete_path: nil, delete_confirm: nil,
+                 image: nil, title:, subtitle: nil, badge: nil, badge_color: "gray", stats: [])
     @record = record
     @show_path = show_path
     @edit_path = edit_path
+    @delete_path = delete_path
+    @delete_confirm = delete_confirm
     @image = image
     @title = title
     @subtitle = subtitle
     @badge = badge
     @badge_color = badge_color
+    @stats = stats
   end
 
   def badge_classes

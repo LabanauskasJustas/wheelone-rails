@@ -43,7 +43,7 @@ class Visualization < ApplicationRecord
   end
 
   def display_name
-    "#{car.name} + #{rim.name}"
+    "#{car.display_name} + #{rim.name}"
   end
 
   # 🚅 add methods above.

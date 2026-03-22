@@ -81,12 +81,18 @@ lt:
               label: Pridėta
             id:
               heading: Automobilio ID
-            name:
-              _: Pavadinimas
-              api_description: Pavadinimas
-              api_title: Pavadinimas
-              heading: Pavadinimas
-              label: Pavadinimas
+            brand:
+              _: Markė
+              api_description: Markė
+              api_title: Markė
+              heading: Markė
+              label: Markė
+            model:
+              _: Modelis
+              api_description: Modelis
+              api_title: Modelis
+              heading: Modelis
+              label: Modelis
             photo:
               _: Nuotrauka
               api_description: Nuotrauka
@@ -108,12 +114,24 @@ lt:
           label: Pridėta
         id:
           heading: Automobilio ID
-        name:
-          _: Pavadinimas
-          api_description: Pavadinimas
-          api_title: Pavadinimas
-          heading: Pavadinimas
-          label: Pavadinimas
+        year:
+          _: Metai
+          api_description: Metai
+          api_title: Metai
+          heading: Metai
+          label: Metai
+        brand:
+          _: Markė
+          api_description: Markė
+          api_title: Markė
+          heading: Markė
+          label: Markė
+        model:
+          _: Modelis
+          api_description: Modelis
+          api_title: Modelis
+          heading: Modelis
+          label: Modelis
         photo:
           _: Nuotrauka
           api_description: Nuotrauka
@@ -208,7 +226,7 @@ lt:
         section: "%{teams_possessive} automobiliai"
       label: Automobiliai
       navigation:
-        icon: fal fa-puzzle-piece
+        icon: ti ti-car
         label: Automobiliai
       new:
         description: Įveskite naujo automobilio, kurį norite pridėti prie %{team_name}, informaciją.
@@ -231,12 +249,18 @@ lt:
               label: Pridėta
             id:
               heading: Automobilio ID
-            name:
-              _: Pavadinimas
-              api_description: Pavadinimas
-              api_title: Pavadinimas
-              heading: Pavadinimas
-              label: Pavadinimas
+            brand:
+              _: Markė
+              api_description: Markė
+              api_title: Markė
+              heading: Markė
+              label: Markė
+            model:
+              _: Modelis
+              api_description: Modelis
+              api_title: Modelis
+              heading: Modelis
+              label: Modelis
             photo:
               _: Nuotrauka
               api_description: Nuotrauka
@@ -299,8 +323,10 @@ lt:
   activerecord:
     attributes:
       car:
+        year: Metai
+        brand: Markė
+        model: Modelis
         created_at: Pridėta
-        name: Pavadinimas
         photo: Nuotrauka
         updated_at: Atnaujinta
   cars:
@@ -315,12 +341,24 @@ lt:
           label: Pridėta
         id:
           heading: Automobilio ID
-        name:
-          _: Pavadinimas
-          api_description: Pavadinimas
-          api_title: Pavadinimas
-          heading: Pavadinimas
-          label: Pavadinimas
+        year:
+          _: Metai
+          api_description: Metai
+          api_title: Metai
+          heading: Metai
+          label: Metai
+        brand:
+          _: Markė
+          api_description: Markė
+          api_title: Markė
+          heading: Markė
+          label: Markė
+        model:
+          _: Modelis
+          api_description: Modelis
+          api_title: Modelis
+          heading: Modelis
+          label: Modelis
         photo:
           _: Nuotrauka
           api_description: Nuotrauka
@@ -447,12 +485,24 @@ lt:
           label: Pridėta
         id:
           heading: Automobilio ID
-        name:
-          _: Pavadinimas
-          api_description: Pavadinimas
-          api_title: Pavadinimas
-          heading: Pavadinimas
-          label: Pavadinimas
+        year:
+          _: Metai
+          api_description: Metai
+          api_title: Metai
+          heading: Metai
+          label: Metai
+        brand:
+          _: Markė
+          api_description: Markė
+          api_title: Markė
+          heading: Markė
+          label: Markė
+        model:
+          _: Modelis
+          api_description: Modelis
+          api_title: Modelis
+          heading: Modelis
+          label: Modelis
         photo:
           _: Nuotrauka
           api_description: Nuotrauka
@@ -489,12 +539,24 @@ lt:
           label: Pridėta
         id:
           heading: Automobilio ID
-        name:
-          _: Pavadinimas
-          api_description: Pavadinimas
-          api_title: Pavadinimas
-          heading: Pavadinimas
-          label: Pavadinimas
+        year:
+          _: Metai
+          api_description: Metai
+          api_title: Metai
+          heading: Metai
+          label: Metai
+        brand:
+          _: Markė
+          api_description: Markė
+          api_title: Markė
+          heading: Markė
+          label: Markė
+        model:
+          _: Modelis
+          api_description: Modelis
+          api_title: Modelis
+          heading: Modelis
+          label: Modelis
         photo:
           _: Nuotrauka
           api_description: Nuotrauka
@@ -510,7 +572,7 @@ lt:
       section: "%{teams_possessive} automobiliai"
     label: Automobiliai
     navigation:
-      icon: fal fa-puzzle-piece
+      icon: ti ti-car
       label: Automobiliai
     new:
       description: Įveskite naujo automobilio, kurį norite pridėti prie %{team_name}, informaciją.
@@ -577,12 +639,24 @@ lt:
           label: Pridėta
         id:
           heading: Automobilio ID
-        name:
-          _: Pavadinimas
-          api_description: Pavadinimas
-          api_title: Pavadinimas
-          heading: Pavadinimas
-          label: Pavadinimas
+        year:
+          _: Metai
+          api_description: Metai
+          api_title: Metai
+          heading: Metai
+          label: Metai
+        brand:
+          _: Markė
+          api_description: Markė
+          api_title: Markė
+          heading: Markė
+          label: Markė
+        model:
+          _: Modelis
+          api_description: Modelis
+          api_title: Modelis
+          heading: Modelis
+          label: Modelis
         photo:
           _: Nuotrauka
           api_description: Nuotrauka
