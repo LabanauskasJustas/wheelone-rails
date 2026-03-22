@@ -1,0 +1,16 @@
+lt:
+  onboarding: &onboarding
+    invitation_lists:
+      buttons: &buttons
+        next: Toliau
+        skip: Praleisti
+      new:
+        header: Pakvieskite komandos narius
+        buttons: *buttons
+      invitation_form:
+        membership:
+          roles:
+            label: Teisės
+            default: Numatytasis
+  account:
+    onboarding: *onboarding

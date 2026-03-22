@@ -1,0 +1,10 @@
+lt:
+  onboarding: &onboarding
+    user_details:
+      buttons: &buttons
+        next: Toliau
+      edit:
+        header: Papasakokite apie save
+        buttons: *buttons
+  account:
+    onboarding: *onboarding

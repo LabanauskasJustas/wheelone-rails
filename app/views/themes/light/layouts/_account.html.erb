@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html class="theme-<%= BulletTrain::Themes::Light.color %> <%= "theme-secondary-#{BulletTrain::Themes::Light.secondary_color}" if BulletTrain::Themes::Light.secondary_color %> <%= BulletTrain::Themes::Light.force_color_scheme_to.to_s.presence %>" lang="<%= I18n.locale %>">
+  <head>
+    <%= render 'shared/layouts/head' %>
+  </head>
+  <body class="min-h-screen <%= BulletTrain::Themes::Light.background || "bg-base-100 md:bg-gradient-to-br from-secondary-200 to-primary-400 dark:from-primary-900 dark:to-primary-600" %> text-base-700 text-sm font-normal dark:text-base-300">
+    <div class="p-4 bg-primary-900 electron-draggable electron-title-bar hidden electron-mobile-only"></div>
+    <div class="md:p-5 main-container-padding">
+      <div class="min-h-screen md:h-auto md:rounded-lg flex shadow main-container"
+        data-controller="mobile-menu"
+        data-mobile-menu-hidden-class="hidden"
+      >
+        <%= render "account/shared/menu/mobile" %>
+
+        <% if BulletTrain::Themes::Light.navigation == :left %>
+          <div class="hidden lg:flex lg:shrink-0 bg-gradient-to-b from-primary-700 to-primary-800 dark:from-base-800 dark:to-base-800 md:rounded-l-lg">
+            <div class="w-64">
+              <%= render "account/shared/menu/sidebar" %>
+            </div>
+          </div>
+        <% end %>
+
+        <div class="flex flex-col w-0 flex-1 bg-base-100 dark:bg-base-800 dark:border-base-500 md:rounded-lg <%= BulletTrain::Themes::Light.navigation == :left ? "lg:border-l lg:rounded-l-none" : "" %>">
+
+          <% if BulletTrain::Themes::Light.navigation == :top %>
+            <div class="hidden lg:flex bg-gradient-to-b from-primary-700 to-primary-800 dark:from-base-700/50 dark:to-base-800 dark:shadow md:rounded-t-lg">
+              <%= render "account/shared/menu/top" %>
+            </div>
+          <% end %>
+
+          <main class="flex-1 relative z-0 focus:outline-none" tabindex="0">
+            <div class="flex flex-row items-center shadow-sm dark:shadow electron-draggable">
+              <%= render "account/shared/menu/open" %>
+
+              <nav class="flex overflow-auto px-1 lg:px-4 py-2 select-none" aria-label="Breadcrumb">
+                <ol class="breadcrumb whitespace-nowrap flex items-center space-x-3 py-0.5 pr-3">
+                  <%= render('breadcrumbs').strip.html_safe %>
+                </ol>
+              </nav>
+            </div>
+
+            <div class="py-2 px-1">
+              <div class="mx-auto px-4 sm:px-6 py-4">
+                <%= yield %>
+              </div>
+            </div>
+          </main>
+        </div>
+      </div>
+    </div>
+
+    <%# Modal overlay — shown when a turbo-frame#modal loads content %>
+    <div id="modal-overlay"
+         class="hidden fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-black/60 backdrop-blur-sm py-10 px-4"
+         data-controller="modal"
+         data-action="click->modal#closeOnBackdrop keydown.esc@window->modal#close">
+      <div class="relative w-full max-w-2xl">
+        <%# Close button overlaid on the hero image area %>
+        <button class="absolute top-6 right-6 z-30 bg-white/80 dark:bg-base-800/80 backdrop-blur-md rounded-full p-2 shadow-md hover:bg-white dark:hover:bg-base-700 transition-colors"
+                data-action="click->modal#close">
+          <span class="material-symbols-outlined text-base-700 dark:text-base-200" style="font-size: 18px;">close</span>
+        </button>
+        <turbo-frame id="modal" class="block" data-action="turbo:frame-load->modal#open"></turbo-frame>
+      </div>
+    </div>
+  </body>
+</html>

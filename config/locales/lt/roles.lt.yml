@@ -1,0 +1,6 @@
+lt:
+  roles:
+    label: &label Specialios teisės
+    breadcrumbs:
+      label: *label
+    header: Specialios teisės

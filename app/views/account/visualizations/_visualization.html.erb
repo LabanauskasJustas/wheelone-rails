@@ -1,0 +1,27 @@
+<% team = @team || @team %>
+<% context ||= team %>
+<% collection ||= :visualizations %>
+<% hide_actions ||= false %>
+<% hide_back ||= false %>
+
+<% with_attribute_settings object: visualization do %>
+  <tr data-id="<%= visualization.id %>" class="group">
+    <%= render "shared/tables/checkbox", object: visualization %>
+    <td><%= render 'shared/attributes/belongs_to', attribute: :car, url: [:account, visualization] %></td>
+    <td><%= render 'shared/attributes/belongs_to', attribute: :rim %></td>
+    <td><%= render 'shared/attributes/text', attribute: :status %></td>
+    <%# 🚅 super scaffolding will insert new fields above this line. %>
+    <td><%= render 'shared/attributes/date_and_time', attribute: :created_at %></td>
+    <td class="buttons">
+      <% unless hide_actions %>
+        <% if can? :edit, visualization %>
+          <%= link_to t('.buttons.shorthand.edit'), [:edit, :account, visualization], class: 'button-secondary button-smaller' %>
+        <% end %>
+        <% if can? :destroy, visualization %>
+          <%= button_to t('.buttons.shorthand.destroy'), [:account, visualization], method: :delete, data: { turbo_confirm: t('.buttons.confirmations.destroy', model_locales(visualization)) }, class: 'button-secondary button-smaller' %>
+        <% end %>
+        <%# 🚅 super scaffolding will insert new action model buttons above this line. %>
+      <% end %>
+    </td>
+  </tr>
+<% end %>

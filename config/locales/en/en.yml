@@ -1,1 +1,6 @@
 en:
+  locale:
+    default: Default
+    locales:
+      lt: Lietuvių
+      en: English

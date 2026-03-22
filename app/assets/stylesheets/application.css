@@ -15,3 +15,21 @@
 /* If you need to customize your application's CSS, this is the place to do it. This helps
    avoid merge conflicts in the future when Rails or Bullet Train update their own CSS.
 */
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.dark .glass-card {
+  background: rgba(30, 33, 36, 0.7);
+}
+
+.primary-gradient {
+  background: linear-gradient(135deg, #0053da 0%, #346df5 100%);
+}

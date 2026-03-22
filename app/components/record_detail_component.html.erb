@@ -1,0 +1,89 @@
+<div class="w-full bg-white rounded-2xl overflow-hidden shadow-[0px_32px_64px_rgba(0,62,167,0.18)]">
+
+  <%# Hero image %>
+  <div class="relative h-[400px] w-full overflow-hidden bg-surface-container">
+    <% if image.present? %>
+      <%= image_tag image, class: "w-full h-full object-cover", alt: title %>
+    <% else %>
+      <div class="w-full h-full flex items-center justify-center">
+        <span class="material-symbols-outlined text-8xl text-on-surface-variant">photo_camera</span>
+      </div>
+    <% end %>
+
+    <%# Bottom fade %>
+    <div class="absolute inset-0 bg-gradient-to-t from-white/40 via-transparent to-transparent pointer-events-none"></div>
+
+    <%# Pill badge — only rendered if badge arg is present %>
+    <% if badge.present? %>
+      <div class="absolute top-6 left-6">
+        <span class="bg-surface-container-lowest/80 backdrop-blur-md px-4 py-2 rounded-full font-label text-xs font-bold tracking-[0.05em] text-primary shadow-sm uppercase">
+          <%= badge %>
+        </span>
+      </div>
+    <% end %>
+  </div>
+
+  <%# Card body overlapping the image %>
+  <div class="relative px-8 md:px-12 pb-12 -mt-24 z-10">
+    <div class="glass-card rounded-lg p-8 md:p-10 shadow-lg">
+
+      <%# Title block %>
+      <div class="mb-10">
+        <h1 class="font-headline text-3xl md:text-4xl font-[800] tracking-tighter text-on-surface mb-3 uppercase">
+          <%= title %>
+        </h1>
+
+        <div class="flex flex-wrap items-center gap-6">
+          <%# Identifier slot — rendered from identifier arg %>
+          <% if identifier.present? %>
+            <div class="flex items-center gap-2 text-on-surface-variant">
+              <span class="material-symbols-outlined text-primary" style="font-size: 20px;">fingerprint</span>
+              <span class="font-label text-[11px] font-semibold tracking-widest uppercase"><%= identifier %></span>
+            </div>
+          <% end %>
+
+          <%# Status slot — rendered from status arg %>
+          <% if status.present? %>
+            <div class="flex items-center gap-2 text-on-surface-variant">
+              <span class="material-symbols-outlined text-[#1a8e1a]" style="font-size: 20px; font-variation-settings: 'FILL' 1;">check_circle</span>
+              <span class="font-label text-[11px] font-semibold tracking-widest uppercase"><%= status %></span>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+      <%# Stats grid — flexible array of { label:, value: } hashes %>
+      <% if stats.any? %>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+          <% stats.each do |stat| %>
+            <div class="bg-surface-container-low rounded-lg p-6 flex flex-col gap-1 transition-all hover:bg-surface-container">
+              <span class="font-label text-[10px] font-bold tracking-[0.05em] text-on-surface-variant opacity-70 uppercase"><%= stat[:label] %></span>
+              <span class="font-headline text-lg font-semibold text-on-surface"><%= stat[:value] %></span>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+
+      <%# Action buttons %>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <% if edit_path.present? %>
+          <%= link_to edit_path, data: { turbo_frame: "_top" }, class: "flex-1 primary-gradient text-white font-headline font-bold py-5 px-8 rounded-lg flex items-center justify-center gap-3 shadow-[0px_8px_20px_rgba(0,83,218,0.2)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300" do %>
+            <span class="material-symbols-outlined" style="font-size: 22px;">edit</span>
+            <span><%= t("global.buttons.edit") %></span>
+          <% end %>
+        <% end %>
+        <% if delete_path.present? %>
+          <%= button_to delete_path, method: :delete,
+                form_class: "flex-1",
+                class: "w-full bg-[#be0614] text-white font-headline font-bold py-5 px-8 rounded-lg flex items-center justify-center gap-3 shadow-[0px_8px_20px_rgba(190,6,20,0.2)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300",
+                data: { turbo_confirm: delete_confirm, turbo_frame: "_top" } do %>
+            <span class="material-symbols-outlined" style="font-size: 22px;">delete</span>
+            <span><%= t("global.buttons.delete") %></span>
+          <% end %>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+
+</div>

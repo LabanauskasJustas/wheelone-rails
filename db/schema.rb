@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_03_21_192612) do
+ActiveRecord::Schema[8.0].define(version: 2026_03_21_210352) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -293,6 +293,18 @@ ActiveRecord::Schema[8.0].define(version: 2026_03_21_192612) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
+  create_table "visualizations", force: :cascade do |t|
+    t.bigint "team_id", null: false
+    t.bigint "car_id", null: false
+    t.bigint "rim_id", null: false
+    t.string "status", default: "pending", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["car_id"], name: "index_visualizations_on_car_id"
+    t.index ["rim_id"], name: "index_visualizations_on_rim_id"
+    t.index ["team_id"], name: "index_visualizations_on_team_id"
+  end
+
   create_table "webhooks_incoming_bullet_train_webhooks", force: :cascade do |t|
     t.jsonb "data"
     t.datetime "processed_at", precision: nil
@@ -388,6 +400,9 @@ ActiveRecord::Schema[8.0].define(version: 2026_03_21_192612) do
   add_foreign_key "scaffolding_completely_concrete_tangible_things_assignments", "memberships"
   add_foreign_key "scaffolding_completely_concrete_tangible_things_assignments", "scaffolding_completely_concrete_tangible_things", column: "tangible_thing_id"
   add_foreign_key "users", "oauth_applications", column: "platform_agent_of_id"
+  add_foreign_key "visualizations", "cars"
+  add_foreign_key "visualizations", "rims"
+  add_foreign_key "visualizations", "teams"
   add_foreign_key "webhooks_outgoing_endpoints", "scaffolding_absolutely_abstract_creative_concepts"
   add_foreign_key "webhooks_outgoing_endpoints", "teams"
   add_foreign_key "webhooks_outgoing_events", "teams"

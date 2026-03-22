@@ -1,0 +1,88 @@
+lt:
+  locale:
+    default: Numatytasis
+    locales:
+      lt: Lietuvių
+      en: English
+  menus:
+    main:
+      labels:
+        dashboard: Apžvalga
+        developers: Kūrėjai
+        integrations: Integracijos
+        team: Komanda
+        team_settings: Komandos nustatymai
+        your_account: Jūsų paskyra
+        edit_account_details: Paskyros informacija
+        logout: Atsijungti
+        switch_teams: Perjungti komandas
+        add_new_team: Pridėti naują komandą
+        team_members: Komandos nariai
+        webhooks: Žinučių kabliukai
+        invitations: Kvietimai
+        billing: Atsiskaitymas
+        upgrade: Atnaujinti
+        profile_details: Profilio duomenys
+        resources: Ištekliai
+        collaborate: Bendradarbiauti
+        new: Nauja
+  global:
+    or: Arba
+    more: Daugiau
+    is_admin: Administratorius?
+    person: Asmuo
+    admin: Administratorius
+    confirm_message: Ar tikrai?
+    typing_search: Pradėkite rašyti...
+    sidebar: Šoninė juosta
+    time_ago: "prieš %{time}"
+    never: Niekada
+    not_set: Nenustatyta
+    buttons:
+      other: Kita
+      debug: Derinti
+      details: Detalės
+      revoke: Atšaukti
+      cancel: Atšaukti
+      next: Toliau
+      back: Atgal
+      new: Naujas
+      edit: Redaguoti
+      settings: Nustatymai
+      configure: Konfigūruoti
+      remove: Pašalinti
+      delete: Ištrinti
+      update: Atnaujinti
+      sign_up: Registruotis
+      sign_in: Prisijungti
+    notifications:
+      not_found: nerasta
+      all_fields_required: Visi šie laukai yra privalomi.
+      validation_error: Prašome ištaisyti žemiau nurodytas klaidas.
+    dates:
+      today: Šiandien
+      day:
+        one: 1 diena
+        other: "%{count} dienos"
+      last_month: Praėjęs mėnuo
+      last_week: Praėjusi savaitė
+      last_day:
+        one: Paskutinė diena
+        other: Paskutinės %{count} dienos
+    formats:
+      timestamp_unavailable: Niekada
+      date: "%Y-%m-%d"
+      date_and_time: "%Y-%m-%d %H:%M"
+    file_fields:
+      download: Atsisiųsti failą
+      download_current: Atsisiųsti esamą failą
+      remove: Pašalinti esamą failą
+      upload: Įkelti naują failą
+    bulk_select:
+      all: Visi
+  bullet_train:
+    name: WheelOne
+  account:
+    teams:
+      show:
+        header: "%{teams_possessive} apžvalga"

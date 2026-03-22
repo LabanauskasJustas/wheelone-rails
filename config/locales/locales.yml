@@ -1,14 +1,4 @@
-locales: &locales
-  lt: Lietuvių
+---
+locales:
   en: English
-
-# The language labels should be the same across all locales.
-lt:
-  locale:
-    default: Numatytasis
-    locales: *locales
-
-en:
-  locale:
-    default: Default
-    locales: *locales
+  lt: Lietuvių

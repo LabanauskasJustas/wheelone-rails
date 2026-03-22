@@ -1,0 +1,12 @@
+lt:
+  onboarding: &onboarding
+    user_email:
+      buttons: &buttons
+        next: Toliau
+      edit:
+        header: Koks jūsų el. pašto adresas?
+        description: Nepavyko gauti jūsų el. pašto adreso iš naudotos paskyros.
+        email_taken: Atsiprašome, šis el. pašto adresas jau susietas su kita paskyra. Prisijunkite naudodami el. paštą ir slaptažodį ir pridėkite šią paskyrą nustatymuose.
+        buttons: *buttons
+  account:
+    onboarding: *onboarding

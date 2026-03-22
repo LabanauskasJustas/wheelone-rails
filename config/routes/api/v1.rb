@@ -33,6 +33,7 @@ shallow do
 
       resources :cars
       resources :rims
+      resources :visualizations
     end
   end
 end

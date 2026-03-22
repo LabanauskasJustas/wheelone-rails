@@ -19,21 +19,17 @@
 
       <% box.table do %>
         <% if cars.any? %>
-          <table class="table">
-            <thead>
-              <tr>
-                <%= render "shared/tables/select_all" %>
-                <th><%= t('.fields.name.heading') %></th>
-                <th><%= t('.fields.photo.heading') %></th>
-                <%# 🚅 super scaffolding will insert new field headers above this line. %>
-                <th><%= t('.fields.created_at.heading') %></th>
-                <th class="text-right"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <%= render partial: 'account/cars/car', collection: cars %>
-            </tbody>
-          </table>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-4">
+            <% cars.each do |car| %>
+              <%= render RecordCardComponent.new(
+                record: car,
+                show_path: [:account, car],
+                edit_path: can?(:edit, car) ? [:edit, :account, car] : nil,
+                image: car.photo.attached? ? rails_blob_url(car.photo) : nil,
+                title: car.display_name
+              ) %>
+            <% end %>
+          </div>
         <% end %>
       <% end %>
 
@@ -47,7 +43,6 @@
 
           <%# 🚅 super scaffolding will insert new targets one parent action model buttons above this line. %>
           <%# 🚅 super scaffolding will insert new bulk action model buttons above this line. %>
-          <%= render "shared/bulk_action_select" if cars.any? %>
 
           <% unless hide_back %>
             <%= link_to t('global.buttons.back'), [:account, context], class: "#{first_button_primary(:car)} back" %>

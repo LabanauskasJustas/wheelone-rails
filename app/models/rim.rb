@@ -2,6 +2,7 @@ class Rim < ApplicationRecord
   # Associations
   belongs_to :team
   has_one_attached :photo
+  attr_accessor :photo_removal
 
   # Normalizations
   normalizes :name, with: ->(name) { name.strip }

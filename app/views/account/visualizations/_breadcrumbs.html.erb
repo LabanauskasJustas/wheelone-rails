@@ -1,0 +1,8 @@
+<% visualization ||= @visualization %>
+<% team ||= @team || visualization&.team %>
+<%= render 'account/teams/breadcrumbs', team: team %>
+<%= render 'account/shared/breadcrumb', label: t('.label'), url: [:account, team, :visualizations] %>
+<% if visualization&.persisted? %>
+  <%= render 'account/shared/breadcrumb', label: visualization.label_string, url: [:account, visualization] %>
+<% end %>
+<%= render 'account/shared/breadcrumbs/actions', only_for: 'visualizations' %>

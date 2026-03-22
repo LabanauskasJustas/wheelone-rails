@@ -1,0 +1,25 @@
+<%= render 'account/shared/page' do |page| %>
+  <% page.title t('.section') %>
+  <% page.body do %>
+    <%= turbo_frame_tag "modal" do %>
+    <%= cable_ready_updates_for @visualization do %>
+      <%= render RecordDetailComponent.new(
+        title: @visualization.display_name,
+        image: @visualization.result_image.attached? ? rails_blob_url(@visualization.result_image) : nil,
+        badge: t("visualizations.fields.status.options.#{@visualization.status}"),
+        identifier: "ID-#{@visualization.id}",
+        status: t("visualizations.fields.status.options.#{@visualization.status}"),
+        stats: [
+          { label: t('.fields.car.heading'),        value: @visualization.car.display_name },
+          { label: t('.fields.rim.heading'),         value: @visualization.rim.display_name },
+          { label: t('.fields.created_at.heading'),  value: l(@visualization.created_at.to_date, format: :long) }
+        ],
+        edit_path: can?(:edit, @visualization) ? [:edit, :account, @visualization] : nil,
+        delete_path: can?(:destroy, @visualization) ? [:account, @visualization] : nil,
+        delete_confirm: t('.buttons.confirmations.destroy', model_locales(@visualization))
+      ) %>
+      <%# 🚅 super scaffolding will insert new children above this line. %>
+    <% end %>
+    <% end %>
+  <% end %>
+<% end %>

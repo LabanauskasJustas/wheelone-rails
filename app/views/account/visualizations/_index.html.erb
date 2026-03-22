@@ -1,0 +1,67 @@
+<% visualizations = visualizations.accessible_by(current_ability) %>
+<% team = @team %>
+<% context ||= team %>
+<% collection ||= :visualizations %>
+<% hide_actions ||= false %>
+<% hide_back ||= false %>
+
+<% pagy ||= nil %>
+<% pagy, visualizations = pagy(visualizations, page_param: :visualizations_page) unless pagy %>
+
+<% status_colors = {
+  "pending"    => "gray",
+  "processing" => "yellow",
+  "ready"      => "green",
+  "failed"     => "red"
+} %>
+
+<%= action_model_select_controller do %>
+  <% cable_ready_updates_for context, collection do %>
+    <%= render 'account/shared/box', pagy: pagy do |box| %>
+      <% box.title t(".contexts.#{context.class.name.underscore}.header") %>
+      <% box.description do %>
+        <%= t(".contexts.#{context.class.name.underscore}.description#{"_empty" unless visualizations.any?}") %>
+        <%= render "shared/limits/index", model: visualizations.model %>
+      <% end %>
+
+      <% box.table do %>
+        <% if visualizations.any? %>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-4">
+            <% visualizations.each do |visualization| %>
+              <%= render RecordCardComponent.new(
+                record: visualization,
+                show_path: [:account, visualization],
+                edit_path: can?(:edit, visualization) ? [:edit, :account, visualization] : nil,
+                image: visualization.result_image.attached? ? rails_blob_url(visualization.result_image) : nil,
+                title: visualization.display_name,
+                badge: t(".fields.status.options.#{visualization.status}"),
+                badge_color: status_colors[visualization.status]
+              ) %>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+
+      <% box.actions do %>
+        <% unless hide_actions %>
+          <% if context == team %>
+            <% if can? :create, Visualization.new(team: team) %>
+              <%= link_to t('.buttons.new'), [:new, :account, team, :visualization], class: "#{first_button_primary(:visualization)} new" %>
+            <% end %>
+          <% end %>
+
+          <%# 🚅 super scaffolding will insert new targets one parent action model buttons above this line. %>
+          <%# 🚅 super scaffolding will insert new bulk action model buttons above this line. %>
+
+          <% unless hide_back %>
+            <%= link_to t('global.buttons.back'), [:account, context], class: "#{first_button_primary(:visualization)} back" %>
+          <% end %>
+        <% end %>
+      <% end %>
+
+      <% box.raw_footer do %>
+        <%# 🚅 super scaffolding will insert new action model index views above this line. %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

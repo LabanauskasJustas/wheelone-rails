@@ -1,0 +1,113 @@
+lt:
+  visualizations: &visualizations
+    label: &label Vizualizacijos
+    breadcrumbs:
+      label: *label
+    navigation:
+      label: *label
+      icon: fal fa-puzzle-piece
+    buttons: &buttons
+      new: Pridėti naują vizualizaciją
+      create: Sukurti vizualizaciją
+      edit: Redaguoti vizualizaciją
+      update: Atnaujinti vizualizaciją
+      destroy: Pašalinti vizualizaciją
+      shorthand:
+        edit: Redaguoti
+        destroy: Ištrinti
+      confirmations:
+        destroy: Ar tikrai norite pašalinti %{visualization_name}? Tai taip pat pašalins visus susijusius įrašus ir nebus galima atšaukti.
+    visualization:
+      buttons: *buttons
+    fields: &fields
+      id:
+        heading: Vizualizacijos ID
+      team_id:
+        heading: Komandos ID
+      car_id: &car
+        _: &car_id Automobilis
+        label: *car_id
+        heading: *car_id
+        api_title: *car_id
+        api_description: *car_id
+        placeholder: Pasirinkite
+      car: *car
+      rim_id: &rim
+        _: &rim_id Ratlankis
+        label: *rim_id
+        heading: *rim_id
+        api_title: *rim_id
+        api_description: *rim_id
+        placeholder: Nėra
+      rim: *rim
+      status:
+        _: &status Būsena
+        label: *status
+        heading: *status
+        api_title: *status
+        api_description: *status
+        options:
+          pending: Ruošiama
+          processing: Apdorojama
+          ready: Paruošta
+          failed: Nepavyko
+      created_at:
+        _: &created_at Sukurta
+        label: *created_at
+        heading: *created_at
+      updated_at:
+        _: &updated_at Atnaujinta
+        label: *updated_at
+        heading: *updated_at
+    api:
+      collection_actions: "Vizualizacijų grupės veiksmai"
+      index: "Vizualizacijų sąrašas"
+      create: "Pridėti naują vizualizaciją"
+      member_actions: "Individualios vizualizacijos veiksmai"
+      show: "Gauti vizualizaciją"
+      update: "Atnaujinti vizualizaciją"
+      destroy: "Ištrinti vizualizaciją"
+      fields: *fields
+    index:
+      section: "%{teams_possessive} vizualizacijos"
+      contexts:
+        team:
+          header: Vizualizacijos
+          description: Žemiau pateikiamos %{team_name} vizualizacijos.
+          description_empty: "%{team_name} dar nėra vizualizacijų."
+      fields: *fields
+      buttons: *buttons
+    show:
+      section: "%{visualization_name}"
+      header: Vizualizacijos informacija
+      description: Žemiau pateikiama %{visualization_name} informacija.
+      manage_description: Taip pat galite atnaujinti šiuos duomenis arba visiškai pašalinti %{visualization_name} iš %{team_name}.
+      fields: *fields
+      buttons: *buttons
+    form: &form
+      buttons: *buttons
+      fields: *fields
+    new:
+      section: "Nauja %{team_name} vizualizacija"
+      header: Naujos vizualizacijos duomenys
+      description: Įveskite naujos vizualizacijos, kurią norite pridėti prie %{team_name}, duomenis.
+      form: *form
+    edit:
+      section: "%{visualization_name}"
+      header: Redaguoti vizualizacijos duomenis
+      description: Žemiau galite atnaujinti %{visualization_name} duomenis ar nustatymus.
+      form: *form
+    notifications:
+      created: Vizualizacija sėkmingai sukurta.
+      updated: Vizualizacija sėkmingai atnaujinta.
+      destroyed: Vizualizacija sėkmingai pašalinta.
+  account:
+    visualizations: *visualizations
+  activerecord:
+    attributes:
+      visualization:
+        car_id: *car_id
+        rim_id: *rim_id
+        status: *status
+        created_at: *created_at
+        updated_at: *updated_at

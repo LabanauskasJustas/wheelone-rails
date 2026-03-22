@@ -75,6 +75,7 @@ Rails.application.routes.draw do
 
         resources :cars
         resources :rims
+        resources :visualizations
       end
     end
   end

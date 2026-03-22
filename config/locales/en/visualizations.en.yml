@@ -1,0 +1,111 @@
+en:
+  visualizations: &visualizations
+    label: &label Visualizations
+    breadcrumbs:
+      label: *label
+    navigation:
+      label: *label
+      icon: fal fa-puzzle-piece
+    buttons: &buttons
+      new: Add New Visualization
+      create: Create Visualization
+      edit: Edit Visualization
+      update: Update Visualization
+      destroy: Remove Visualization
+      shorthand:
+        edit: Edit
+        destroy: Delete
+      confirmations:
+        # TODO customize for your use-case.
+        destroy: Are you sure you want to remove %{visualization_name}? This will also remove any child resources and can't be undone.
+    visualization:
+      buttons: *buttons
+    fields: &fields
+      id:
+        heading: Visualization ID
+      team_id:
+        heading: Team ID
+      car_id: &car
+        _: &car_id Car
+        label: *car_id
+        heading: *car_id
+        api_title: *car_id
+        api_description: *car_id
+        placeholder: Select
+      car: *car
+      rim_id: &rim
+        _: &rim_id Rim
+        label: *rim_id
+        heading: *rim_id
+        api_title: *rim_id
+        api_description: *rim_id
+        placeholder: None
+      rim: *rim
+      status:
+        _: &status Status
+        label: *status
+        heading: *status
+        api_title: *status
+        api_description: *status
+      # 🚅 super scaffolding will insert new fields above this line.
+      created_at:
+        _: &created_at Added
+        label: *created_at
+        heading: *created_at
+      updated_at:
+        _: &updated_at Updated
+        label: *updated_at
+        heading: *updated_at
+    api:
+      collection_actions: "Collection Actions for Visualizations"
+      index: "List Visualizations"
+      create: "Add a New Visualization"
+      member_actions: "Actions for an Individual Visualization"
+      show: "Retrieve a Visualization"
+      update: "Update a Visualization"
+      destroy: "Delete a Visualization"
+      fields: *fields
+    index:
+      section: "%{teams_possessive} Visualizations"
+      contexts:
+        team:
+          header: Visualizations
+          description: Below is a list of Visualizations that have been added for %{team_name}.
+          description_empty: No Visualizations have been added for %{team_name}.
+      fields: *fields
+      buttons: *buttons
+    show:
+      section: "%{visualization_name}"
+      header: Visualization Details
+      description: Below are the details we have for %{visualization_name}.
+      manage_description: You'll also find options for updating these details or removing %{visualization_name} from %{team_name} entirely.
+      fields: *fields
+      buttons: *buttons
+    form: &form
+      buttons: *buttons
+      fields: *fields
+    new:
+      section: "New Visualization for %{team_name}"
+      header: New Visualization Details
+      description: Please provide the details of the new Visualization you'd like to add to %{team_name}.
+      form: *form
+    edit:
+      section: "%{visualization_name}"
+      header: Edit Visualization Details
+      description: You can update the details or settings for %{visualization_name} below.
+      form: *form
+    notifications:
+      created: Visualization was successfully created.
+      updated: Visualization was successfully updated.
+      destroyed: Visualization was successfully destroyed.
+  account:
+    visualizations: *visualizations
+  activerecord:
+    attributes:
+      visualization:
+        car_id: *car_id
+        rim_id: *rim_id
+        status: *status
+        # 🚅 super scaffolding will insert new activerecord attributes above this line.
+        created_at: *created_at
+        updated_at: *updated_at

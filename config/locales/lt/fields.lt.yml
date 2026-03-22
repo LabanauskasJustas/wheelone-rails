@@ -1,0 +1,27 @@
+lt:
+  fields:
+    download_file: Atsisiųsti esamą failą
+    upload_file: Įkelti naują failą
+    upload_files: Įkelti naujus failus
+    add_another_file: Pridėti dar vieną failą
+    replace_file: Pakeisti failą
+    remove_file: Pašalinti esamą failą
+    cancel_remove_file: Atšaukti šalinimą
+    download_image: Atsisiųsti esamą nuotrauką
+    upload_image: Įkelti naują nuotrauką
+    upload_images: Įkelti naujas nuotraukas
+    add_another_image: Pridėti dar vieną nuotrauką
+    replace_image: Pakeisti nuotrauką
+    remove_image: Pašalinti esamą nuotrauką
+    cancel_remove_image: Atšaukti šalinimą
+    select_different_file: Pasirinkti kitą failą
+    download_document: Atsisiųsti esamą failą
+    upload_document: Įkelti naują failą
+    upload_documents: Įkelti naujus failus
+    add_another_document: Pridėti dar vieną failą
+    replace_document: Pakeisti failą
+    remove_document: Pašalinti esamą failą
+    cancel_remove_document: Atšaukti šalinimą
+    date_field:
+      apply: Taikyti
+      cancel: Išvalyti

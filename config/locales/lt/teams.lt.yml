@@ -1,9 +1,110 @@
----
 lt:
+  teams: &teams
+    label: &label Komandos
+    singular: Komanda
+    breadcrumbs:
+      label: *label
+      team_settings: Komandos nustatymai
+      dashboard: Apžvalga
+    navigation:
+      label: Komanda
+    buttons: &buttons
+      new: Pridėti naują komandą
+      create: Sukurti komandą
+      edit: Redaguoti komandą
+      update: Atnaujinti komandą
+      destroy: Ištrinti komandą
+      confirmations:
+        destroy: Ar tikrai norite ištrinti šią komandą?
+    index:
+      section: Komandos
+      header: Jūsų komandos
+      create: Sukurti naują komandą
+      buttons: *buttons
+    show:
+      header: "%{teams_possessive} apžvalga"
+    new:
+      header: Sukurti naują komandą
+      former_user_header: Prisijungti prie komandos
+      default_team_name: Jūsų komanda
+      buttons: *buttons
+      you_can: "Galite:"
+      invitation_header: Priimti kvietimą
+      logout_header: Atsijungti iš paskyros
+      new_team_header: Sukurti naują komandą
+      alert: Paskyra <b>%{user_email}</b> šiuo metu nėra jokios komandos narys.
+      invitation: Jei gavote el. laišką su kvietimu prisijungti prie komandos, spustelėkite jame esančią nuorodą.
+      log_out: Galite atsijungti nuo šios paskyros ir prisijungti su kita, kuri yra komandos narys.
+      new_team: Galite naudoti žemiau esančią formą, kad sukurtumėte naują savo komandą.
+    edit:
+      section: "%{team_name}"
+      header: Redaguoti komandos informaciją
+      description: Žemiau galite atnaujinti šios komandos informaciją ir nustatymus.
+    notifications:
+      created: Komanda sėkmingai sukurta.
+      updated: Komanda sėkmingai atnaujinta.
+      destroyed: Komanda sėkmingai ištrinta.
+      invitation_only: Naujų komandų kūrimas šiuo metu prieinamas tik pakviesti vartotojai.
+      cannot_delete_last_team: Negalite ištrinti paskutinės komandos, kuriai priklausote.
+    form:
+      buttons: *buttons
+    fields: &fields
+      id:
+        _: &id Komandos ID
+        label: *id
+        heading: *id
+        api_title: *id
+        api_description: *id
+      name:
+        _: &name Komandos pavadinimas
+        label: *name
+        heading: Komanda
+        api_title: *name
+        api_description: *name
+      time_zone:
+        _: &time_zone Pagrindinė laiko juosta
+        label: Pagrindinė laiko juosta
+        heading: *time_zone
+        api_title: *time_zone
+        api_description: *time_zone
+      locale:
+        _: &locale Kalba
+        label: Pagrindinė kalba
+        heading: *locale
+        api_title: *locale
+        api_description: *locale
+        options:
+          lt: Lietuvių
+          en: English
+      created_at:
+        _: &created_at Užregistruota
+        heading: *created_at
+        api_title: *created_at
+        api_description: *created_at
+      updated_at:
+        _: &updated_at Atnaujinta
+        heading: *updated_at
+        api_title: *updated_at
+        api_description: *updated_at
+    _: &self
+      name:
+        label: Jūsų komandos pavadinimas
+    self:
+      <<: [*self, *fields]
+    api:
+      actions: "Komandų veiksmai"
+      index: "Komandų sąrašas"
+      create: "Pridėti naują komandą"
+      show: "Gauti komandą"
+      update: "Atnaujinti komandą"
+      fields: *fields
+  account:
+    teams: *teams
   activerecord:
     attributes:
       team:
-        _:
-  teams:
-    fields:
-      _:
+        name: *name
+        time_zone: *time_zone
+        locale: *locale
+        created_at: *created_at
+        updated_at: *updated_at

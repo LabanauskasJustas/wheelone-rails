@@ -1,0 +1,18 @@
+lt:
+  breadcrumbs:
+    your_dashboard: Apžvalga
+    actions:
+      edit: Redaguoti
+      new: Naujas
+
+  layouts:
+    mailer:
+      trouble: Jei nepavyksta paspausti mygtuko, nukopijuokite ir įklijuokite žemiau esantį URL į naršyklę.
+      all_rights_reserved: "%{year} %{product_name}. Visos teisės saugomos."
+    public:
+      launch_help: Padedame žmonėms sukurti aukštos kokybės SaaS produktus!
+      developed_by: Sukurta
+      made_with_love: Sukurta su meile
+      location: Los Andželas, Kalifornija
+      follow_us: Sekite mus
+      all_rights_reserved: "%{year} Bullet Train, Inc., visos teisės saugomos"
