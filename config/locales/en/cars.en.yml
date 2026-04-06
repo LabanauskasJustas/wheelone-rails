@@ -49,6 +49,23 @@ en:
         heading: *photo
         api_title: *photo
         api_description: *photo
+      body_type:
+        _: &body_type Body Type
+        label: *body_type
+        heading: *body_type
+        options:
+          sedan: Sedan
+          coupe: Coupe
+          suv: SUV
+          hatchback: Hatchback
+          wagon: Wagon
+          convertible: Convertible
+      color:
+        _: &color Color
+        label: *color
+        heading: *color
+        api_title: *color
+        api_description: *color
       # 🚅 super scaffolding will insert new fields above this line.
       created_at:
         _: &created_at Added

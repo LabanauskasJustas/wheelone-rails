@@ -19,6 +19,22 @@ lt:
             api_title: Pavadinimas
             heading: Pavadinimas
             label: Pavadinimas
+          brand:
+            _: Gamintojas
+            heading: Gamintojas
+            label: Gamintojas
+          diameter:
+            _: Skersmuo
+            heading: Skersmuo
+            label: Skersmuo
+          width:
+            _: Plotis
+            heading: Plotis
+            label: Plotis
+          finish:
+            _: Apdaila
+            heading: Apdaila
+            label: Apdaila
           photo:
             _: Nuotrauka
             api_description: Nuotrauka
@@ -102,6 +118,22 @@ lt:
           api_title: Pavadinimas
           heading: Pavadinimas
           label: Pavadinimas
+        brand:
+          _: Gamintojas
+          heading: Gamintojas
+          label: Gamintojas
+        diameter:
+          _: Skersmuo
+          heading: Skersmuo
+          label: Skersmuo
+        width:
+          _: Plotis
+          heading: Plotis
+          label: Plotis
+        finish:
+          _: Apdaila
+          heading: Apdaila
+          label: Apdaila
         photo:
           _: Nuotrauka
           api_description: Nuotrauka
@@ -139,6 +171,22 @@ lt:
             api_title: Pavadinimas
             heading: Pavadinimas
             label: Pavadinimas
+          brand:
+            _: Gamintojas
+            heading: Gamintojas
+            label: Gamintojas
+          diameter:
+            _: Skersmuo
+            heading: Skersmuo
+            label: Skersmuo
+          width:
+            _: Plotis
+            heading: Plotis
+            label: Plotis
+          finish:
+            _: Apdaila
+            heading: Apdaila
+            label: Apdaila
           photo:
             _: Nuotrauka
             api_description: Nuotrauka
@@ -181,6 +229,22 @@ lt:
             api_title: Pavadinimas
             heading: Pavadinimas
             label: Pavadinimas
+          brand:
+            _: Gamintojas
+            heading: Gamintojas
+            label: Gamintojas
+          diameter:
+            _: Skersmuo
+            heading: Skersmuo
+            label: Skersmuo
+          width:
+            _: Plotis
+            heading: Plotis
+            label: Plotis
+          finish:
+            _: Apdaila
+            heading: Apdaila
+            label: Apdaila
           photo:
             _: Nuotrauka
             api_description: Nuotrauka
@@ -281,6 +345,22 @@ lt:
             api_title: Pavadinimas
             heading: Pavadinimas
             label: Pavadinimas
+          brand:
+            _: Gamintojas
+            heading: Gamintojas
+            label: Gamintojas
+          diameter:
+            _: Skersmuo
+            heading: Skersmuo
+            label: Skersmuo
+          width:
+            _: Plotis
+            heading: Plotis
+            label: Plotis
+          finish:
+            _: Apdaila
+            heading: Apdaila
+            label: Apdaila
           photo:
             _: Nuotrauka
             api_description: Nuotrauka
@@ -321,6 +401,22 @@ lt:
           api_title: Pavadinimas
           heading: Pavadinimas
           label: Pavadinimas
+        brand:
+          _: Gamintojas
+          heading: Gamintojas
+          label: Gamintojas
+        diameter:
+          _: Skersmuo
+          heading: Skersmuo
+          label: Skersmuo
+        width:
+          _: Plotis
+          heading: Plotis
+          label: Plotis
+        finish:
+          _: Apdaila
+          heading: Apdaila
+          label: Apdaila
         photo:
           _: Nuotrauka
           api_description: Nuotrauka
@@ -377,6 +473,22 @@ lt:
             api_title: Pavadinimas
             heading: Pavadinimas
             label: Pavadinimas
+          brand:
+            _: Gamintojas
+            heading: Gamintojas
+            label: Gamintojas
+          diameter:
+            _: Skersmuo
+            heading: Skersmuo
+            label: Skersmuo
+          width:
+            _: Plotis
+            heading: Plotis
+            label: Plotis
+          finish:
+            _: Apdaila
+            heading: Apdaila
+            label: Apdaila
           photo:
             _: Nuotrauka
             api_description: Nuotrauka
@@ -441,6 +553,22 @@ lt:
           api_title: Pavadinimas
           heading: Pavadinimas
           label: Pavadinimas
+        brand:
+          _: Gamintojas
+          heading: Gamintojas
+          label: Gamintojas
+        diameter:
+          _: Skersmuo
+          heading: Skersmuo
+          label: Skersmuo
+        width:
+          _: Plotis
+          heading: Plotis
+          label: Plotis
+        finish:
+          _: Apdaila
+          heading: Apdaila
+          label: Apdaila
         photo:
           _: Nuotrauka
           api_description: Nuotrauka
@@ -483,6 +611,22 @@ lt:
           api_title: Pavadinimas
           heading: Pavadinimas
           label: Pavadinimas
+        brand:
+          _: Gamintojas
+          heading: Gamintojas
+          label: Gamintojas
+        diameter:
+          _: Skersmuo
+          heading: Skersmuo
+          label: Skersmuo
+        width:
+          _: Plotis
+          heading: Plotis
+          label: Plotis
+        finish:
+          _: Apdaila
+          heading: Apdaila
+          label: Apdaila
         photo:
           _: Nuotrauka
           api_description: Nuotrauka
@@ -527,6 +671,22 @@ lt:
             api_title: Pavadinimas
             heading: Pavadinimas
             label: Pavadinimas
+          brand:
+            _: Gamintojas
+            heading: Gamintojas
+            label: Gamintojas
+          diameter:
+            _: Skersmuo
+            heading: Skersmuo
+            label: Skersmuo
+          width:
+            _: Plotis
+            heading: Plotis
+            label: Plotis
+          finish:
+            _: Apdaila
+            heading: Apdaila
+            label: Apdaila
           photo:
             _: Nuotrauka
             api_description: Nuotrauka
@@ -583,6 +743,22 @@ lt:
           api_title: Pavadinimas
           heading: Pavadinimas
           label: Pavadinimas
+        brand:
+          _: Gamintojas
+          heading: Gamintojas
+          label: Gamintojas
+        diameter:
+          _: Skersmuo
+          heading: Skersmuo
+          label: Skersmuo
+        width:
+          _: Plotis
+          heading: Plotis
+          label: Plotis
+        finish:
+          _: Apdaila
+          heading: Apdaila
+          label: Apdaila
         photo:
           _: Nuotrauka
           api_description: Nuotrauka

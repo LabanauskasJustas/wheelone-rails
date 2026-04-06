@@ -47,6 +47,8 @@ if defined?(Api::V1::ApplicationController)
           :brand,
           :model,
           :year,
+          :body_type,
+          :color,
           :photo,
           :photo_removal,
           # 🚅 super scaffolding will insert new fields above this line.

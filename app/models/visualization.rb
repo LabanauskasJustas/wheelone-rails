@@ -34,12 +34,21 @@ class Visualization < ApplicationRecord
 
   # 🚅 add delegations above.
 
+  # Ransack
+  def self.ransackable_attributes(auth_object = nil)
+    %w[status car_id rim_id created_at]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    %w[car rim]
+  end
+
   def valid_cars
-    team.cars
+    team.cars.with_attached_photo
   end
 
   def valid_rims
-    team.rims
+    team.rims.with_attached_photo
   end
 
   def display_name

@@ -5,14 +5,27 @@ class Rim < ApplicationRecord
   attr_accessor :photo_removal
 
   # Normalizations
-  normalizes :name, with: ->(name) { name.strip }
+  normalizes :name,   with: ->(name) { name.strip }
+  normalizes :brand,  with: ->(v) { v.strip.truncate(60) }
+  normalizes :finish, with: ->(v) { v.strip.truncate(60) }
 
   # Validations
   validates :name, presence: true, length: { maximum: 100 }
+  validates :diameter, numericality: { only_integer: true, greater_than_or_equal_to: 14, less_than_or_equal_to: 40 }, allow_nil: true
+  validates :width,    numericality: { greater_than_or_equal_to: 3.0, less_than_or_equal_to: 30.0 }, allow_nil: true
 
   # Scopes
   scope :search_by_name, ->(q) { where("name ILIKE ?", "%#{sanitize_sql_like(q)}%") }
   scope :recent, -> { order(created_at: :desc) }
+
+  # Ransack
+  def self.ransackable_attributes(auth_object = nil)
+    %w[name brand diameter width finish created_at]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    []
+  end
 
   # Public methods
   def display_name

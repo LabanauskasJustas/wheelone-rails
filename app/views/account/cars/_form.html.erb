@@ -49,6 +49,25 @@
               </div>
             </div>
 
+            <%# Body Type %>
+            <div class="space-y-2">
+              <%= form.label :body_type, t('.fields.body_type.label'),
+                    class: "block font-label text-[10px] uppercase tracking-widest text-outline pl-1" %>
+              <%= form.select :body_type,
+                    Car::BODY_TYPES.map { |t| [I18n.t("account.cars.form.fields.body_type.options.#{t}"), t] },
+                    { include_blank: "—" },
+                    class: "w-full !bg-[#e0e3e5] border-0 ring-0 shadow-none rounded-2xl px-4 py-3.5 focus:ring-2 focus:ring-primary/20 focus:ring-offset-0 focus:border-0 transition-all outline-none text-on-surface" %>
+            </div>
+
+            <%# Color %>
+            <div class="space-y-2">
+              <%= form.label :color, t('.fields.color.label'),
+                    class: "block font-label text-[10px] uppercase tracking-widest text-outline pl-1" %>
+              <%= form.text_field :color,
+                    placeholder: "e.g. Midnight Blue Metallic",
+                    class: "w-full !bg-[#e0e3e5] border-0 ring-0 shadow-none rounded-2xl px-4 py-3.5 focus:ring-2 focus:ring-primary/20 focus:ring-offset-0 focus:border-0 transition-all outline-none text-on-surface placeholder:text-outline/50" %>
+            </div>
+
           </div>
         </section>
 

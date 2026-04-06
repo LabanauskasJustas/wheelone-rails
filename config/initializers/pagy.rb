@@ -208,5 +208,7 @@
 # See https://ddnexus.github.io/pagy/docs/extras/i18n
 # require 'pagy/extras/i18n'
 
+Pagy::DEFAULT[:limit] = 8
+
 # When you are done setting your own default freeze it, so it will not get changed accidentally
 Pagy::DEFAULT.freeze

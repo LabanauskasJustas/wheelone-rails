@@ -51,7 +51,7 @@ gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 gem "bootsnap", require: false
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
-# gem "image_processing", "~> 1.2"
+gem "image_processing", "~> 1.2"
 
 # A natural language date/time parser.
 gem "chronic"
@@ -232,6 +232,8 @@ end
 
 # Use Ruby hashes as readonly datasources for ActiveRecord-like models.
 gem "active_hash"
+gem "ransack"
+gem "pagy"
 
 # OPTIONAL BULLET TRAIN GEMS
 # This section lists Ruby gems that we used to include by default. In an effort to

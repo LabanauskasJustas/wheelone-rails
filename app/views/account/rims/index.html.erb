@@ -1,4 +1,9 @@
 <%= render 'account/shared/page' do |page| %>
   <% page.title t('.section') %>
-  <% page.body.render 'index', rims: @rims %>
+  <% page.body do %>
+    <%= render "filters", q: @q %>
+    <turbo-frame id="rims-results">
+      <%= render 'index', rims: @rims, pagy: @pagy %>
+    </turbo-frame>
+  <% end %>
 <% end %>

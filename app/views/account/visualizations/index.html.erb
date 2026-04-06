@@ -1,4 +1,9 @@
 <%= render 'account/shared/page' do |page| %>
   <% page.title t('.section') %>
-  <% page.body.render 'index', visualizations: @visualizations %>
+  <% page.body do %>
+    <%= render "filters", q: @q %>
+    <turbo-frame id="visualizations-results">
+      <%= render 'index', visualizations: @visualizations, pagy: @pagy %>
+    </turbo-frame>
+  <% end %>
 <% end %>

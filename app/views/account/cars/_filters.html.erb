@@ -1,0 +1,50 @@
+<%= search_form_for q,
+      url: [:account, @team, :cars],
+      html: {
+        data: {
+          controller: "filter-form",
+          turbo_frame: "cars-results"
+        }
+      } do |f| %>
+
+  <div class="glass-card rounded-2xl p-6 mb-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+
+    <%# Text search %>
+    <div class="space-y-1">
+      <label class="block font-label text-[10px] uppercase tracking-widest text-outline pl-1">Paieška</label>
+      <%= f.search_field :brand_or_model_cont,
+            placeholder: "BMW, 540...",
+            data: { action: "input->filter-form#input" },
+            class: "w-full !bg-[#e0e3e5] border-0 rounded-2xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-primary/20 transition-all" %>
+    </div>
+
+    <%# Body type %>
+    <div class="space-y-1">
+      <label class="block font-label text-[10px] uppercase tracking-widest text-outline pl-1">Kėbulo tipas</label>
+      <%= f.select :body_type_eq,
+            Car::BODY_TYPES.map { |t| [I18n.t("account.cars.form.fields.body_type.options.#{t}"), t] },
+            { include_blank: "— visi —" },
+            data: { action: "change->filter-form#change" },
+            class: "w-full !bg-[#e0e3e5] border-0 rounded-2xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-primary/20 transition-all appearance-none" %>
+    </div>
+
+    <%# Year from %>
+    <div class="space-y-1">
+      <label class="block font-label text-[10px] uppercase tracking-widest text-outline pl-1">Metai nuo</label>
+      <%= f.number_field :year_gteq,
+            placeholder: "2000",
+            data: { action: "input->filter-form#input" },
+            class: "w-full !bg-[#e0e3e5] border-0 rounded-2xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-primary/20 transition-all" %>
+    </div>
+
+    <%# Year to %>
+    <div class="space-y-1">
+      <label class="block font-label text-[10px] uppercase tracking-widest text-outline pl-1">Metai iki</label>
+      <%= f.number_field :year_lteq,
+            placeholder: Time.current.year.to_s,
+            data: { action: "input->filter-form#input" },
+            class: "w-full !bg-[#e0e3e5] border-0 rounded-2xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-primary/20 transition-all" %>
+    </div>
+
+  </div>
+<% end %>

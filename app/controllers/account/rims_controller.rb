@@ -4,6 +4,8 @@ class Account::RimsController < Account::ApplicationController
   # GET /account/teams/:team_id/rims
   # GET /account/teams/:team_id/rims.json
   def index
+    @q = @rims.ransack(params[:q])
+    @pagy, @rims = pagy(@q.result(distinct: true).recent)
     delegate_json_to_api
   end
 

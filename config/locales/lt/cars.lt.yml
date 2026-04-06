@@ -19,6 +19,21 @@ lt:
             api_title: Pavadinimas
             heading: Pavadinimas
             label: Pavadinimas
+          body_type:
+            _: Kėbulo tipas
+            heading: Kėbulo tipas
+            label: Kėbulo tipas
+            options:
+              sedan: Sedanas
+              coupe: Kupė
+              suv: Visureigis
+              hatchback: Hečbekas
+              wagon: Universalas
+              convertible: Kabrioletas
+          color:
+            _: Spalva
+            heading: Spalva
+            label: Spalva
           photo:
             _: Nuotrauka
             api_description: Nuotrauka
@@ -132,6 +147,21 @@ lt:
           api_title: Modelis
           heading: Modelis
           label: Modelis
+        body_type:
+          _: Kėbulo tipas
+          heading: Kėbulo tipas
+          label: Kėbulo tipas
+          options:
+            sedan: Sedanas
+            coupe: Kupė
+            suv: Visureigis
+            hatchback: Hečbekas
+            wagon: Universalas
+            convertible: Kabrioletas
+        color:
+          _: Spalva
+          heading: Spalva
+          label: Spalva
         photo:
           _: Nuotrauka
           api_description: Nuotrauka
@@ -169,6 +199,21 @@ lt:
             api_title: Pavadinimas
             heading: Pavadinimas
             label: Pavadinimas
+          body_type:
+            _: Kėbulo tipas
+            heading: Kėbulo tipas
+            label: Kėbulo tipas
+            options:
+              sedan: Sedanas
+              coupe: Kupė
+              suv: Visureigis
+              hatchback: Hečbekas
+              wagon: Universalas
+              convertible: Kabrioletas
+          color:
+            _: Spalva
+            heading: Spalva
+            label: Spalva
           photo:
             _: Nuotrauka
             api_description: Nuotrauka
@@ -211,6 +256,21 @@ lt:
             api_title: Pavadinimas
             heading: Pavadinimas
             label: Pavadinimas
+          body_type:
+            _: Kėbulo tipas
+            heading: Kėbulo tipas
+            label: Kėbulo tipas
+            options:
+              sedan: Sedanas
+              coupe: Kupė
+              suv: Visureigis
+              hatchback: Hečbekas
+              wagon: Universalas
+              convertible: Kabrioletas
+          color:
+            _: Spalva
+            heading: Spalva
+            label: Spalva
           photo:
             _: Nuotrauka
             api_description: Nuotrauka
@@ -305,6 +365,21 @@ lt:
             api_title: Pavadinimas
             heading: Pavadinimas
             label: Pavadinimas
+          body_type:
+            _: Kėbulo tipas
+            heading: Kėbulo tipas
+            label: Kėbulo tipas
+            options:
+              sedan: Sedanas
+              coupe: Kupė
+              suv: Visureigis
+              hatchback: Hečbekas
+              wagon: Universalas
+              convertible: Kabrioletas
+          color:
+            _: Spalva
+            heading: Spalva
+            label: Spalva
           photo:
             _: Nuotrauka
             api_description: Nuotrauka
@@ -359,6 +434,21 @@ lt:
           api_title: Modelis
           heading: Modelis
           label: Modelis
+        body_type:
+          _: Kėbulo tipas
+          heading: Kėbulo tipas
+          label: Kėbulo tipas
+          options:
+            sedan: Sedanas
+            coupe: Kupė
+            suv: Visureigis
+            hatchback: Hečbekas
+            wagon: Universalas
+            convertible: Kabrioletas
+        color:
+          _: Spalva
+          heading: Spalva
+          label: Spalva
         photo:
           _: Nuotrauka
           api_description: Nuotrauka
@@ -427,6 +517,21 @@ lt:
             api_title: Pavadinimas
             heading: Pavadinimas
             label: Pavadinimas
+          body_type:
+            _: Kėbulo tipas
+            heading: Kėbulo tipas
+            label: Kėbulo tipas
+            options:
+              sedan: Sedanas
+              coupe: Kupė
+              suv: Visureigis
+              hatchback: Hečbekas
+              wagon: Universalas
+              convertible: Kabrioletas
+          color:
+            _: Spalva
+            heading: Spalva
+            label: Spalva
           photo:
             _: Nuotrauka
             api_description: Nuotrauka
@@ -503,6 +608,21 @@ lt:
           api_title: Modelis
           heading: Modelis
           label: Modelis
+        body_type:
+          _: Kėbulo tipas
+          heading: Kėbulo tipas
+          label: Kėbulo tipas
+          options:
+            sedan: Sedanas
+            coupe: Kupė
+            suv: Visureigis
+            hatchback: Hečbekas
+            wagon: Universalas
+            convertible: Kabrioletas
+        color:
+          _: Spalva
+          heading: Spalva
+          label: Spalva
         photo:
           _: Nuotrauka
           api_description: Nuotrauka
@@ -557,6 +677,21 @@ lt:
           api_title: Modelis
           heading: Modelis
           label: Modelis
+        body_type:
+          _: Kėbulo tipas
+          heading: Kėbulo tipas
+          label: Kėbulo tipas
+          options:
+            sedan: Sedanas
+            coupe: Kupė
+            suv: Visureigis
+            hatchback: Hečbekas
+            wagon: Universalas
+            convertible: Kabrioletas
+        color:
+          _: Spalva
+          heading: Spalva
+          label: Spalva
         photo:
           _: Nuotrauka
           api_description: Nuotrauka
@@ -601,6 +736,21 @@ lt:
             api_title: Pavadinimas
             heading: Pavadinimas
             label: Pavadinimas
+          body_type:
+            _: Kėbulo tipas
+            heading: Kėbulo tipas
+            label: Kėbulo tipas
+            options:
+              sedan: Sedanas
+              coupe: Kupė
+              suv: Visureigis
+              hatchback: Hečbekas
+              wagon: Universalas
+              convertible: Kabrioletas
+          color:
+            _: Spalva
+            heading: Spalva
+            label: Spalva
           photo:
             _: Nuotrauka
             api_description: Nuotrauka
@@ -657,6 +807,21 @@ lt:
           api_title: Modelis
           heading: Modelis
           label: Modelis
+        body_type:
+          _: Kėbulo tipas
+          heading: Kėbulo tipas
+          label: Kėbulo tipas
+          options:
+            sedan: Sedanas
+            coupe: Kupė
+            suv: Visureigis
+            hatchback: Hečbekas
+            wagon: Universalas
+            convertible: Kabrioletas
+        color:
+          _: Spalva
+          heading: Spalva
+          label: Spalva
         photo:
           _: Nuotrauka
           api_description: Nuotrauka

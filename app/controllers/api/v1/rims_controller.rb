@@ -45,6 +45,10 @@ if defined?(Api::V1::ApplicationController)
         strong_params = params.require(:rim).permit(
           *permitted_fields,
           :name,
+          :brand,
+          :diameter,
+          :width,
+          :finish,
           :photo,
           :photo_removal,
           # 🚅 super scaffolding will insert new fields above this line.

@@ -4,6 +4,8 @@ class Account::CarsController < Account::ApplicationController
   # GET /account/teams/:team_id/cars
   # GET /account/teams/:team_id/cars.json
   def index
+    @q = @cars.ransack(params[:q])
+    @pagy, @cars = pagy(@q.result(distinct: true).recent)
     delegate_json_to_api
   end
 

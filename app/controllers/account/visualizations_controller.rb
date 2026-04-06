@@ -4,6 +4,8 @@ class Account::VisualizationsController < Account::ApplicationController
   # GET /account/teams/:team_id/visualizations
   # GET /account/teams/:team_id/visualizations.json
   def index
+    @q = @visualizations.ransack(params[:q])
+    @pagy, @visualizations = pagy(@q.result(distinct: true).recent)
     delegate_json_to_api
   end
 

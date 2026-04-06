@@ -5,7 +5,7 @@
     <%= cable_ready_updates_for @car do %>
       <%= render RecordDetailComponent.new(
         title: "#{@car.brand} #{@car.model}",
-        image: @car.photo.attached? ? rails_blob_url(@car.photo) : nil,
+        image: @car.photo.attached? ? rails_representation_url(@car.photo.variant(format: :jpeg)) : nil,
         badge: @car.year&.to_s,
         identifier: "ID-#{@car.id}",
         status: t('.header'),

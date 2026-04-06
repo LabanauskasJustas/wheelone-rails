@@ -6,9 +6,14 @@ class Car < ApplicationRecord
   attr_accessor :photo_removal
   after_save { photo.purge_later if photo_removal == "1" }
 
+  # Enums
+  BODY_TYPES = %w[sedan coupe suv hatchback wagon convertible].freeze
+  enum :body_type, BODY_TYPES.index_by(&:itself), prefix: false, validate: { allow_nil: true }
+
   # Normalizations
   normalizes :brand, with: ->(v) { v.strip }
   normalizes :model, with: ->(v) { v.strip }
+  normalizes :color, with: ->(v) { v.strip.truncate(60) }
 
   # Validations
   validates :brand, presence: true, length: { maximum: 100 }
@@ -18,6 +23,15 @@ class Car < ApplicationRecord
   # Scopes
   scope :search_by_name, ->(q) { where("brand ILIKE :q OR model ILIKE :q", q: "%#{sanitize_sql_like(q)}%") }
   scope :recent, -> { order(created_at: :desc) }
+
+  # Ransack
+  def self.ransackable_attributes(auth_object = nil)
+    %w[brand model year body_type color created_at]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    []
+  end
 
   # Public methods
   def display_name

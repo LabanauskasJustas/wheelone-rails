@@ -1,0 +1,43 @@
+<%= search_form_for q,
+      url: [:account, @team, :visualizations],
+      html: {
+        data: {
+          controller: "filter-form",
+          turbo_frame: "visualizations-results"
+        }
+      } do |f| %>
+
+  <div class="glass-card rounded-2xl p-6 mb-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+    <%# Status %>
+    <div class="space-y-1">
+      <label class="block font-label text-[10px] uppercase tracking-widest text-outline pl-1">Statusas</label>
+      <%= f.select :status_eq,
+            Visualization.statuses.keys.map { |s| [s.capitalize, s] },
+            { include_blank: "— visi —" },
+            data: { action: "change->filter-form#change" },
+            class: "w-full !bg-[#e0e3e5] border-0 rounded-2xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-primary/20 transition-all appearance-none" %>
+    </div>
+
+    <%# Car %>
+    <div class="space-y-1">
+      <label class="block font-label text-[10px] uppercase tracking-widest text-outline pl-1">Automobilis</label>
+      <%= f.select :car_id_eq,
+            @team.cars.map { |c| [c.display_name, c.id] },
+            { include_blank: "— visi —" },
+            data: { action: "change->filter-form#change" },
+            class: "w-full !bg-[#e0e3e5] border-0 rounded-2xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-primary/20 transition-all appearance-none" %>
+    </div>
+
+    <%# Rim %>
+    <div class="space-y-1">
+      <label class="block font-label text-[10px] uppercase tracking-widest text-outline pl-1">Ratlankis</label>
+      <%= f.select :rim_id_eq,
+            @team.rims.map { |r| [r.display_name, r.id] },
+            { include_blank: "— visi —" },
+            data: { action: "change->filter-form#change" },
+            class: "w-full !bg-[#e0e3e5] border-0 rounded-2xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-primary/20 transition-all appearance-none" %>
+    </div>
+
+  </div>
+<% end %>

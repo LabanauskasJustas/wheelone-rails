@@ -5,7 +5,7 @@
     <%= cable_ready_updates_for @rim do %>
       <%= render RecordDetailComponent.new(
         title: @rim.display_name,
-        image: @rim.photo.attached? ? rails_blob_url(@rim.photo) : nil,
+        image: @rim.photo.attached? ? rails_representation_url(@rim.photo.variant(format: :jpeg)) : nil,
         identifier: "ID-#{@rim.id}",
         status: t('.header'),
         stats: [

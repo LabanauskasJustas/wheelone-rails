@@ -1,0 +1,41 @@
+<%= search_form_for q,
+      url: [:account, @team, :rims],
+      html: {
+        data: {
+          controller: "filter-form",
+          turbo_frame: "rims-results"
+        }
+      } do |f| %>
+
+  <div class="glass-card rounded-2xl p-6 mb-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+    <%# Text search %>
+    <div class="space-y-1">
+      <label class="block font-label text-[10px] uppercase tracking-widest text-outline pl-1">Paieška</label>
+      <%= f.search_field :name_or_brand_cont,
+            placeholder: "BBS, OZ...",
+            data: { action: "input->filter-form#input" },
+            class: "w-full !bg-[#e0e3e5] border-0 rounded-2xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-primary/20 transition-all" %>
+    </div>
+
+    <%# Diameter %>
+    <div class="space-y-1">
+      <label class="block font-label text-[10px] uppercase tracking-widest text-outline pl-1">Skersmuo</label>
+      <%= f.select :diameter_eq,
+            (14..40).map { |d| ["#{d}\"", d] },
+            { include_blank: "— visi —" },
+            data: { action: "change->filter-form#change" },
+            class: "w-full !bg-[#e0e3e5] border-0 rounded-2xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-primary/20 transition-all appearance-none" %>
+    </div>
+
+    <%# Finish %>
+    <div class="space-y-1">
+      <label class="block font-label text-[10px] uppercase tracking-widest text-outline pl-1">Apdaila</label>
+      <%= f.search_field :finish_cont,
+            placeholder: "Gloss Black...",
+            data: { action: "input->filter-form#input" },
+            class: "w-full !bg-[#e0e3e5] border-0 rounded-2xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-primary/20 transition-all" %>
+    </div>
+
+  </div>
+<% end %>
