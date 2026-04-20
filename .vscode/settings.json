@@ -1,0 +1,10 @@
+{
+  "[erb]": {
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": null
+  },
+  "[ruby]": {
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": null
+  }
+}

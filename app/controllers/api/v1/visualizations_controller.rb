@@ -6,6 +6,10 @@ if defined?(Api::V1::ApplicationController)
   class Api::V1::VisualizationsController < Api::V1::ApplicationController
     account_load_and_authorize_resource :visualization, through: :team, through_association: :visualizations
 
+    # Callback from the Python vision service — no user auth, service-to-service.
+    # TODO: add HMAC shared-secret verification (Wednesday/Thursday).
+    skip_before_action :load_team, only: :callback
+
     # GET /api/v1/teams/:team_id/visualizations
     def index
     end
@@ -35,6 +39,29 @@ if defined?(Api::V1::ApplicationController)
     # DELETE /api/v1/visualizations/:id
     def destroy
       @visualization.destroy
+    end
+
+    # POST /api/v1/visualizations/:id/callback
+    def callback
+      visualization = Visualization.find(params[:id])
+
+      unless params[:visualization_id].to_i == visualization.id
+        return render json: {error: "visualization_id mismatch"}, status: :unprocessable_entity
+      end
+
+      case params[:status]
+      when "completed"
+        VisualizationFetchImageJob.perform_later(visualization.id)
+        head :no_content
+      when "failed"
+        visualization.failed!
+        Rails.logger.warn("[Callback] visualization=#{visualization.id} failed: #{params[:error]}")
+        head :no_content
+      else
+        render json: {error: "unknown status: #{params[:status]}"}, status: :unprocessable_entity
+      end
+    rescue ActiveRecord::RecordNotFound
+      render json: {error: "not found"}, status: :not_found
     end
 
     private

@@ -1,0 +1,23 @@
+<% width ||= "max-w-md" %>
+
+<div class="min-h-screen flex flex-col justify-center sm:py-12">
+  <div class="mx-auto w-full <%= width %> p-1.5">
+    <div class="sm:bg-white py-8 px-10 sm:shadow sm:dark:shadow-lg rounded-lg sm:dark:bg-base-700">
+      <div class="sm:mx-auto sm:w-full sm:max-w-md py-5">
+        <h1 class="text-center text-3xl font-semibold tracking-tight dark:text-white">
+          <%= partial.title %>
+        </h1>
+
+        <%= render "shared/line" %>
+      </div>
+
+      <div class="electron-undraggable pt-5 space-y-5">
+        <%= partial.body %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% if false %>
+  <div class="max-w-md max-w-lg"></div>
+<% end %>
