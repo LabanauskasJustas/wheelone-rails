@@ -1,4 +1,5 @@
 BASE_URL: http://localhost:3000
 MARKETING_SITE_URL: /account
-STRIPE_SECRET_KEY: 
-  DEEPL_API_KEY: aced2fcd-2387-4ade-a8ec-d33c7bc27c26:fx
+STRIPE_SECRET_KEY:
+DEEPL_API_KEY: aced2fcd-2387-4ade-a8ec-d33c7bc27c26:fx
+CALLBACK_HMAC_SECRET: "generate-with-openssl-rand-hex-32"
