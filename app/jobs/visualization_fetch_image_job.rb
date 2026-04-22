@@ -2,6 +2,12 @@
 
 class VisualizationFetchImageJob < ApplicationJob
   queue_as :default
+  sidekiq_options retry: 5
+
+  sidekiq_retries_exhausted do |job, ex|
+    visualization = Visualization.find_by(id: job["args"].first)
+    visualization&.failed!
+  end
 
   def perform(visualization_id)
     visualization = Visualization.find(visualization_id)
@@ -22,8 +28,5 @@ class VisualizationFetchImageJob < ApplicationJob
       content_type: "image/jpeg"
     )
     visualization.ready!
-  rescue => e
-    visualization&.failed!
-    raise e
   end
 end

@@ -69,6 +69,7 @@ class Visualization::Processor
   end
 
   def blob_url(attachment, host)
-    Rails.application.routes.url_helpers.rails_blob_url(attachment, host: host)
+    variant = attachment.variant(format: :jpeg).processed
+    Rails.application.routes.url_helpers.rails_representation_url(variant, host: host)
   end
 end

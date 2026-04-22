@@ -1,4 +1,7 @@
 class Visualization < ApplicationRecord
+  include CableReady::Updatable
+  enable_cable_ready_updates on: :update
+
   # 🚅 add concerns above.
 
   # 🚅 add attribute accessors above.

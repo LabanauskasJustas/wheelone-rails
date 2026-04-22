@@ -9,6 +9,10 @@
         badge: t("visualizations.fields.status.options.#{@visualization.status}"),
         identifier: "ID-#{@visualization.id}",
         status: t("visualizations.fields.status.options.#{@visualization.status}"),
+        raw_status: @visualization.status,
+        loading: @visualization.processing?,
+        full_photo: @visualization.result_image.attached?,
+        retry_path: @visualization.failed? && can?(:update, @visualization) ? retry_account_visualization_path(@visualization) : nil,
         stats: [
           { label: t('.fields.car.heading'),        value: @visualization.car.display_name },
           { label: t('.fields.rim.heading'),         value: @visualization.rim.display_name },

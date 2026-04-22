@@ -75,7 +75,11 @@ Rails.application.routes.draw do
 
         resources :cars
         resources :rims
-        resources :visualizations
+        resources :visualizations do
+          member do
+            post :retry
+          end
+        end
       end
     end
   end

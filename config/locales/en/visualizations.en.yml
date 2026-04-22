@@ -47,6 +47,11 @@ en:
         heading: *status
         api_title: *status
         api_description: *status
+        options:
+          pending: Pending
+          processing: Processing
+          ready: Ready
+          failed: Failed
       # 🚅 super scaffolding will insert new fields above this line.
       created_at:
         _: &created_at Added
@@ -98,6 +103,8 @@ en:
       created: Visualization was successfully created.
       updated: Visualization was successfully updated.
       destroyed: Visualization was successfully destroyed.
+      retry_started: Generation has been restarted.
+      retry_not_failed: Only failed visualizations can be retried.
   account:
     visualizations: *visualizations
   activerecord:

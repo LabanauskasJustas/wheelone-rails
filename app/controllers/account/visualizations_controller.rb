@@ -51,6 +51,16 @@ class Account::VisualizationsController < Account::ApplicationController
     end
   end
 
+  # POST /account/visualizations/:id/retry
+  def retry
+    return redirect_to [:account, @visualization], alert: t("visualizations.notifications.retry_not_failed") unless @visualization.failed?
+
+    @visualization.result_image.purge_later if @visualization.result_image.attached?
+    @visualization.update!(status: "pending")
+    VisualizationProcessingJob.perform_later(@visualization.id)
+    redirect_to [:account, @visualization], notice: t("visualizations.notifications.retry_started")
+  end
+
   # DELETE /account/visualizations/:id
   # DELETE /account/visualizations/:id.json
   def destroy

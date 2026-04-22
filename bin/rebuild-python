@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+set -euo pipefail
+cd "$(dirname "$0")/.."
+docker compose build vision-worker vision-api
+docker compose up -d vision-worker vision-api
+echo "[rebuild-python] done. vision-worker + vision-api restarted."

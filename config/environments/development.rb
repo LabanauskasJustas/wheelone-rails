@@ -131,4 +131,8 @@ Rails.application.configure do
   # ✅ YOUR APPLICATION'S CONFIGURATION
   # If you need to customize your application's configuration, this is the place to do it. This helps avoid merge
   # conflicts in the future when Rails or Bullet Train update their own default settings.
+
+  # Allow the Docker service name so the Python vision worker can fetch ActiveStorage blobs
+  # and POST callbacks when running inside the compose network.
+  config.hosts << "web"
 end

@@ -101,6 +101,8 @@ lt:
       created: Vizualizacija sėkmingai sukurta.
       updated: Vizualizacija sėkmingai atnaujinta.
       destroyed: Vizualizacija sėkmingai pašalinta.
+      retry_started: Generavimas pradėtas iš naujo.
+      retry_not_failed: Pakartoti galima tik nepavykusias vizualizacijas.
   account:
     visualizations: *visualizations
   activerecord:
