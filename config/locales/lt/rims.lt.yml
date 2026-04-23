@@ -202,8 +202,8 @@ lt:
         photo_hint:
           title: "Kokias ratlankio nuotraukas įkelti?"
           paragraphs:
-            - "Geriausias rezultatas, kai ratlankis fotografuojamas tiesiai iš priekio, švariu fonu. Visas dizainas turi būti matomas — spygliai, lankas ir centrinis logotipas. Apskritimas turi atrodyti apvalus, ne ovalus."
-            - "Prieš fotografuodamas nuvalyk ratlankį nuo dulkių ir stabdžių pėdsakų — dirbtinis intelektas atkurs tą patį dizainą, kurį matys nuotraukoje, įskaitant nešvarumus."
+            - "Prieš įkeliant nuotrauką įsitikinkite, kad ratlankis yra aiškiai matomas. Ratlankio fonas turėtų būti šviesus arba permatomas."
+            - "Nekelkite ratlankio nuotraukos iš priekio — spygliai turi būti aiškiai matomi, o apskritimas turi atrodyti apvalus."
           tiles:
             good_straight:
               alt: "Ratlankis tiesiai iš priekio"

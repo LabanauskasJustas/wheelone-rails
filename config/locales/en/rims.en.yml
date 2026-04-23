@@ -101,8 +101,8 @@ en:
       photo_hint:
         title: "Which rim photos to upload?"
         paragraphs:
-          - "Best results come from a head-on photo against a clean background. The whole design must be visible — spokes, lip, and centre cap. The rim should look like a true circle, not an oval."
-          - "Clean the rim of dust and brake residue before the shot — the AI reproduces exactly what it sees, including dirt and scratches."
+          - "Before uploading, make sure the rim is clearly visible. The background should be light or transparent."
+          - "Avoid photos where the rim is obscured or mounted on the car — all spokes must be visible and the rim should appear as a circle, not an oval."
         tiles:
           good_straight:
             alt: "Rim head-on"
