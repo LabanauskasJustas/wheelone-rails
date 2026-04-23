@@ -203,14 +203,14 @@ lt:
           title: "Kokias ratlankio nuotraukas įkelti?"
           paragraphs:
             - "Prieš įkeliant nuotrauką įsitikinkite, kad ratlankis yra aiškiai matomas. Ratlankio fonas turėtų būti šviesus arba permatomas."
-            - "Nekelkite ratlankio nuotraukos iš priekio — spygliai turi būti aiškiai matomi, o apskritimas turi atrodyti apvalus."
+            - "Nekelkite ratlankio nuotraukos iš priekio — ratlankio raštas turi būti aiškiai matomas"
           tiles:
             good_straight:
               alt: "Ratlankis tiesiai iš priekio"
             good_slight_angle:
-              alt: "Nedidelis kampas — visi spygliai matomi"
+              alt: "Nedidelis kampas"
             bad_mounted:
-              alt: "Ratlankis ant automobilio — padanga užstoja kraštą"
+              alt: "Ratlankis iš priekio"
       index:
         buttons:
           confirmations:

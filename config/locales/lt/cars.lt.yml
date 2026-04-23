@@ -226,6 +226,17 @@ lt:
             _: Atnaujinta
             heading: Atnaujinta
             label: Atnaujinta
+        photo_hint:
+          title: "Kokias nuotraukas įkelti?"
+          paragraphs:
+            - "Realų ratlankių vaizdą geriausiai matysi, jei automobilis nuotraukoje stovės šonu arba kampu."
+          tiles:
+            good_three_quarter:
+              alt: "Automobilis kampu"
+            good_side:
+              alt: "Automobilis šonu"
+            bad_front:
+              alt: "Automobilis iš priekio"
       index:
         buttons:
           confirmations:
@@ -635,6 +646,18 @@ lt:
           _: Atnaujinta
           heading: Atnaujinta
           label: Atnaujinta
+      photo_hint:
+        title: "Kokias nuotraukas įkelti?"
+        paragraphs:
+          - "Realų ratlankių vaizdą geriausiai matysi, jei automobilis nuotraukoje stovės šonu arba 30 laipsnių kampu."
+          - "Norint gauti kuo tikslesnį rezultatą, ratlankių nuotraukos kampas turėtų sutapti su automobilio nuotraukos kampu."
+        tiles:
+          good_three_quarter:
+            alt: "Automobilis kampu"
+          good_side:
+            alt: "Automobilis šonu"
+          bad_front:
+            alt: "Automobilis iš priekio"
     index:
       buttons:
         confirmations:

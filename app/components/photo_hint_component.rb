@@ -13,6 +13,6 @@ class PhotoHintComponent < ViewComponent::Base
   end
 
   def status_color(status)
-    status == :good ? "bg-[#1a8e1a]" : "bg-[#be0614]"
+    status == :good ? "#1a8e1a" : "#be0614"
   end
 end

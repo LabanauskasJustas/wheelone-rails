@@ -14,7 +14,8 @@
         <%= image_tag "form_hints/#{subdir}/#{tile[:key]}.png",
               alt: tile[:alt],
               class: "w-full h-auto" %>
-        <div class="absolute top-1.5 right-1.5 w-5 h-5 rounded-full flex items-center justify-center shadow <%= status_color(tile[:status]) %>">
+        <div class="absolute top-1.5 right-1.5 w-5 h-5 rounded-full flex items-center justify-center shadow"
+             style="background-color: <%= status_color(tile[:status]) %>">
           <span class="material-symbols-outlined text-white leading-none"
                 style="font-size: 12px; font-variation-settings: 'FILL' 1;"><%= status_icon(tile[:status]) %></span>
         </div>

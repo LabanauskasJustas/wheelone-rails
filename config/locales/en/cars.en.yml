@@ -103,6 +103,18 @@ en:
     form: &form
       buttons: *buttons
       fields: *fields
+      photo_hint:
+        title: "Which photos to upload?"
+        paragraphs:
+          - "You'll see the real rims best when the car is photographed from the side or at a 30° angle."
+          - "For the most accurate result, the rim photo angle should match the car photo angle."
+        tiles:
+          good_three_quarter:
+            alt: "Car at 3/4 angle"
+          good_side:
+            alt: "Car from the side"
+          bad_front:
+            alt: "Car from the front — rims not visible"
     new:
       section: "New Car for %{team_name}"
       header: New Car Details

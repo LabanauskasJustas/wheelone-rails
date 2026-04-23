@@ -80,6 +80,16 @@
             <h2 class="font-headline text-xl font-semibold tracking-tight text-on-surface">Automobilio nuotrauka</h2>
           </header>
 
+          <%= render PhotoHintComponent.new(
+            title:      t('.photo_hint.title'),
+            paragraphs: t('.photo_hint.paragraphs'),
+            tiles: [
+              { key: "good_three_quarter", status: :good, alt: t('.photo_hint.tiles.good_three_quarter.alt') },
+              { key: "good_side",          status: :good, alt: t('.photo_hint.tiles.good_side.alt') },
+              { key: "bad_front",          status: :bad,  alt: t('.photo_hint.tiles.bad_front.alt') }
+            ]
+          ) %>
+
           <%# Hidden file input — always present %>
           <%= form.file_field :photo, id: "car_photo", accept: "image/*", class: "sr-only" %>
 
