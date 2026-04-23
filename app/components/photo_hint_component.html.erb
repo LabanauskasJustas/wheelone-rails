@@ -1,0 +1,25 @@
+<div class="bg-[#eceef0] rounded-2xl p-5 space-y-3">
+  <h3 class="font-headline text-sm font-semibold text-on-surface flex items-center gap-2">
+    <span class="material-symbols-outlined text-primary" style="font-size: 16px;">tips_and_updates</span>
+    <%= title %>
+  </h3>
+
+  <% paragraphs.each do |para| %>
+    <p class="font-body text-xs text-on-surface-variant leading-relaxed"><%= para %></p>
+  <% end %>
+
+  <div class="grid grid-cols-3 gap-2 pt-1">
+    <% tiles.each do |tile| %>
+      <div class="relative rounded-xl overflow-hidden bg-white shadow-sm">
+        <%= image_tag "form_hints/#{subdir}/#{tile[:key]}.png",
+              alt: tile[:alt],
+              class: "w-full h-auto" %>
+        <div class="absolute top-1.5 right-1.5 w-5 h-5 rounded-full flex items-center justify-center shadow <%= status_color(tile[:status]) %>">
+          <span class="material-symbols-outlined text-white leading-none"
+                style="font-size: 12px; font-variation-settings: 'FILL' 1;"><%= status_icon(tile[:status]) %></span>
+        </div>
+        <p class="font-label text-[9px] text-on-surface-variant text-center px-1.5 py-1 leading-tight"><%= tile[:alt] %></p>
+      </div>
+    <% end %>
+  </div>
+</div>

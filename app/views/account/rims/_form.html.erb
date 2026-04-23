@@ -70,6 +70,17 @@
         <% photo_attached = rim.persisted? && rim.photo.attached? %>
         <section class="bg-[#f2f4f6] rounded-2xl p-6 space-y-6 flex flex-col"
                  id="rim-photo-section">
+          <%= render PhotoHintComponent.new(
+            subdir: "rims",
+            title: t(".photo_hint.title"),
+            paragraphs: t(".photo_hint.paragraphs"),
+            tiles: [
+              { key: "good_straight",     status: :good, alt: t(".photo_hint.tiles.good_straight.alt") },
+              { key: "good_slight_angle", status: :good, alt: t(".photo_hint.tiles.good_slight_angle.alt") },
+              { key: "bad_mounted",       status: :bad,  alt: t(".photo_hint.tiles.bad_mounted.alt") }
+            ]
+          ) %>
+
           <header class="flex items-center gap-3">
             <span class="material-symbols-outlined text-primary text-2xl">photo_camera</span>
             <h2 class="font-headline text-xl font-semibold tracking-tight text-on-surface">Ratlankio nuotrauka</h2>

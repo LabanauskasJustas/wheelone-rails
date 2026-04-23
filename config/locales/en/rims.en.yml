@@ -98,6 +98,18 @@ en:
     form: &form
       buttons: *buttons
       fields: *fields
+      photo_hint:
+        title: "Which rim photos to upload?"
+        paragraphs:
+          - "Best results come from a head-on photo against a clean background. The whole design must be visible — spokes, lip, and centre cap. The rim should look like a true circle, not an oval."
+          - "Clean the rim of dust and brake residue before the shot — the AI reproduces exactly what it sees, including dirt and scratches."
+        tiles:
+          good_straight:
+            alt: "Rim head-on"
+          good_slight_angle:
+            alt: "Slight angle — all spokes visible"
+          bad_mounted:
+            alt: "Rim still on the car — tyre hides the lip"
     new:
       section: "New Rim for %{team_name}"
       header: New Rim Details
