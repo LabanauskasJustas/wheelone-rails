@@ -2,7 +2,7 @@
 
 <%= form_with model: car, url: (car.persisted? ? [:account, car] : [:account, @team, :cars]) do |form| %>
   <%= render "shared/limits/form", form: form, cancel_path: cancel_path do %>
-    <%= render 'account/shared/forms/errors', form: form %>
+    <div id="car-form-errors"><%= render 'account/shared/forms/errors', form: form %></div>
 
     <div class="glass-card rounded-[2rem] shadow-[0px_24px_48px_rgba(0,62,167,0.05)] p-8 md:p-12">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -19,44 +19,60 @@
             <%# Brand + Model — side by side %>
             <div class="grid grid-cols-2 gap-4">
               <div class="space-y-2">
-                <%= form.label :brand, t('.fields.brand.label'),
-                      class: "block font-label text-[10px] uppercase tracking-widest text-outline pl-1" %>
+                <%= form.label :brand, class: "block font-label text-[10px] uppercase tracking-widest text-outline pl-1" do %>
+                  <%= t('.fields.brand.label') %> <span class="text-red-500">*</span>
+                <% end %>
                 <%= form.text_field :brand,
                       autofocus: true,
-                      placeholder: "e.g. BMW",
-                      class: "w-full !bg-[#e0e3e5] border-0 ring-0 shadow-none rounded-2xl px-4 py-3.5 focus:ring-2 focus:ring-primary/20 focus:ring-offset-0 focus:border-0 transition-all outline-none text-on-surface placeholder:text-outline/50" %>
+                      placeholder: "pvz. BMW",
+                      class: "w-full !bg-[#e0e3e5] border-0 ring-0 shadow-none rounded-2xl px-4 py-3.5 focus:ring-2 focus:ring-primary/20 focus:ring-offset-0 focus:border-0 transition-all outline-none text-on-surface placeholder:text-outline/50 #{'ring-2 ring-red-400' if car.errors[:brand].any?}" %>
+                <% if car.errors[:brand].any? %>
+                  <p class="text-red-500 text-xs pl-1"><%= car.errors[:brand].first %></p>
+                <% end %>
               </div>
               <div class="space-y-2">
-                <%= form.label :model, t('.fields.model.label'),
-                      class: "block font-label text-[10px] uppercase tracking-widest text-outline pl-1" %>
+                <%= form.label :model, class: "block font-label text-[10px] uppercase tracking-widest text-outline pl-1" do %>
+                  <%= t('.fields.model.label') %> <span class="text-red-500">*</span>
+                <% end %>
                 <%= form.text_field :model,
-                      placeholder: "e.g. 540i",
-                      class: "w-full !bg-[#e0e3e5] border-0 ring-0 shadow-none rounded-2xl px-4 py-3.5 focus:ring-2 focus:ring-primary/20 focus:ring-offset-0 focus:border-0 transition-all outline-none text-on-surface placeholder:text-outline/50" %>
+                      placeholder: "pvz. 540i",
+                      class: "w-full !bg-[#e0e3e5] border-0 ring-0 shadow-none rounded-2xl px-4 py-3.5 focus:ring-2 focus:ring-primary/20 focus:ring-offset-0 focus:border-0 transition-all outline-none text-on-surface placeholder:text-outline/50 #{'ring-2 ring-red-400' if car.errors[:model].any?}" %>
+                <% if car.errors[:model].any? %>
+                  <p class="text-red-500 text-xs pl-1"><%= car.errors[:model].first %></p>
+                <% end %>
               </div>
             </div>
 
             <%# Year — full width with calendar icon %>
             <div class="space-y-2">
-              <%= form.label :year, t('.fields.year.label'),
-                    class: "block font-label text-[10px] uppercase tracking-widest text-outline pl-1" %>
+              <%= form.label :year, class: "block font-label text-[10px] uppercase tracking-widest text-outline pl-1" do %>
+                <%= t('.fields.year.label') %> <span class="text-red-500">*</span>
+              <% end %>
               <div class="relative">
                 <%= form.number_field :year,
                       placeholder: Time.current.year.to_s,
                       min: 1886, max: Time.current.year + 1, step: 1,
-                      class: "w-full !bg-[#e0e3e5] border-0 ring-0 shadow-none rounded-2xl px-4 py-3.5 pr-12 focus:ring-2 focus:ring-primary/20 focus:ring-offset-0 focus:border-0 transition-all outline-none text-on-surface placeholder:text-outline/50" %>
+                      class: "w-full !bg-[#e0e3e5] border-0 ring-0 shadow-none rounded-2xl px-4 py-3.5 pr-12 focus:ring-2 focus:ring-primary/20 focus:ring-offset-0 focus:border-0 transition-all outline-none text-on-surface placeholder:text-outline/50 #{'ring-2 ring-red-400' if car.errors[:year].any?}" %>
                 <span class="absolute right-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline pointer-events-none"
                       style="font-size: 18px;">calendar_today</span>
               </div>
+              <% if car.errors[:year].any? %>
+                <p class="text-red-500 text-xs pl-1"><%= car.errors[:year].first %></p>
+              <% end %>
             </div>
 
             <%# Body Type %>
             <div class="space-y-2">
-              <%= form.label :body_type, t('.fields.body_type.label'),
-                    class: "block font-label text-[10px] uppercase tracking-widest text-outline pl-1" %>
+              <%= form.label :body_type, class: "block font-label text-[10px] uppercase tracking-widest text-outline pl-1" do %>
+                <%= t('.fields.body_type.label') %> <span class="text-red-500">*</span>
+              <% end %>
               <%= form.select :body_type,
                     Car::BODY_TYPES.map { |t| [I18n.t("account.cars.form.fields.body_type.options.#{t}"), t] },
                     { include_blank: "—" },
-                    class: "w-full !bg-[#e0e3e5] border-0 ring-0 shadow-none rounded-2xl px-4 py-3.5 focus:ring-2 focus:ring-primary/20 focus:ring-offset-0 focus:border-0 transition-all outline-none text-on-surface" %>
+                    class: "w-full !bg-[#e0e3e5] border-0 ring-0 shadow-none rounded-2xl px-4 py-3.5 focus:ring-2 focus:ring-primary/20 focus:ring-offset-0 focus:border-0 transition-all outline-none text-on-surface #{'ring-2 ring-red-400' if car.errors[:body_type].any?}" %>
+              <% if car.errors[:body_type].any? %>
+                <p class="text-red-500 text-xs pl-1"><%= car.errors[:body_type].first %></p>
+              <% end %>
             </div>
 
             <%# Color %>
@@ -64,7 +80,7 @@
               <%= form.label :color, t('.fields.color.label'),
                     class: "block font-label text-[10px] uppercase tracking-widest text-outline pl-1" %>
               <%= form.text_field :color,
-                    placeholder: "e.g. Midnight Blue Metallic",
+                    placeholder: "pvz. Midnight Blue Metallic",
                     class: "w-full !bg-[#e0e3e5] border-0 ring-0 shadow-none rounded-2xl px-4 py-3.5 focus:ring-2 focus:ring-primary/20 focus:ring-offset-0 focus:border-0 transition-all outline-none text-on-surface placeholder:text-outline/50" %>
             </div>
 
@@ -72,13 +88,22 @@
         </section>
 
         <%# ── Right column: photo ───────────────────────────────────── %>
-        <% photo_attached = car.persisted? && car.photo.attached? %>
+        <% photo_attached = car.persisted? && car.photo.attached? && car.photo.blob.persisted? %>
         <section class="bg-[#f2f4f6] rounded-2xl p-6 space-y-6 flex flex-col"
                  id="car-photo-section">
           <header class="flex items-center gap-3">
             <span class="material-symbols-outlined text-primary text-2xl">photo_camera</span>
-            <h2 class="font-headline text-xl font-semibold tracking-tight text-on-surface">Automobilio nuotrauka</h2>
+            <h2 class="font-headline text-xl font-semibold tracking-tight text-on-surface">
+              Automobilio nuotrauka <span class="text-red-500 text-base">*</span>
+            </h2>
           </header>
+
+          <% if car.errors[:photo].any? %>
+            <p id="car-photo-error" class="text-red-500 text-xs font-label flex items-center gap-1">
+              <span class="material-symbols-outlined" style="font-size: 14px;">error</span>
+              <%= car.errors[:photo].first %>
+            </p>
+          <% end %>
 
           <%= render PhotoHintComponent.new(
             title:      t('.photo_hint.title'),
@@ -97,24 +122,48 @@
             (function() {
               function setupPhotoPreview() {
                 var input    = document.getElementById("car_photo");
+                var removal  = document.getElementById("car_photo_removal");
                 var filled   = document.getElementById("car-photo-filled");
                 var dropzone = document.getElementById("car-photo-dropzone");
                 var preview  = document.getElementById("car-photo-preview");
                 var filename = document.getElementById("car-photo-filename");
                 if (!input || input._photoPreviewBound) return;
                 input._photoPreviewBound = true;
+
                 input.addEventListener("change", function() {
                   var file = input.files[0];
                   if (!file) return;
+                  if (removal) removal.checked = false;
                   preview.src = URL.createObjectURL(file);
                   filename.textContent = file.name;
                   filled.classList.remove("hidden");
                   filled.classList.add("flex");
                   dropzone.classList.add("hidden");
                   dropzone.classList.remove("flex");
+                  var photoError = document.getElementById("car-photo-error");
+                  if (photoError) photoError.remove();
+                  var banner = document.getElementById("car-form-errors");
+                  if (banner) banner.innerHTML = "";
                 });
+
+                if (removal) {
+                  removal.addEventListener("change", function() {
+                    if (removal.checked) {
+                      filled.classList.add("hidden");
+                      filled.classList.remove("flex");
+                      dropzone.classList.remove("hidden");
+                      dropzone.classList.add("flex");
+                    } else {
+                      filled.classList.remove("hidden");
+                      filled.classList.add("flex");
+                      dropzone.classList.add("hidden");
+                      dropzone.classList.remove("flex");
+                    }
+                  });
+                }
               }
               document.addEventListener("turbo:load", setupPhotoPreview);
+              document.addEventListener("turbo:render", setupPhotoPreview);
               document.addEventListener("DOMContentLoaded", setupPhotoPreview);
             })();
           </script>
@@ -144,7 +193,9 @@
           <%# ── Empty state — full-area clickable dropzone ─────────── %>
           <label for="car_photo"
                  id="car-photo-dropzone"
-                 class="flex-grow relative flex-col items-center justify-center border-2 border-dashed border-[#c3c6d7]/50 bg-[#eceef0] rounded-2xl min-h-[280px] cursor-pointer hover:bg-[#e6e8ea] transition-colors overflow-hidden group <%= photo_attached ? 'hidden' : 'flex' %>">
+                 class="flex-grow relative flex-col items-center justify-center border-2 border-dashed rounded-2xl min-h-[280px] cursor-pointer transition-colors overflow-hidden group
+                        <%= car.errors[:photo].any? ? 'border-red-400 bg-red-50/50 hover:bg-red-50' : 'border-[#c3c6d7]/50 bg-[#eceef0] hover:bg-[#e6e8ea]' %>
+                        <%= photo_attached ? 'hidden' : 'flex' %>">
 
             <%# Centered upload prompt %>
             <div class="relative z-10 flex flex-col items-center text-center px-6 pointer-events-none">
@@ -152,7 +203,7 @@
                 <span class="material-symbols-outlined text-primary text-3xl">cloud_upload</span>
               </div>
               <p class="font-body font-medium text-on-surface text-sm mb-1">Spauskite arba įkelkite nuotrauką</p>
-              <p class="font-label text-[11px] text-outline">Rekomenduojama: PNG, JPG (Max 10MB)</p>
+              <p class="font-label text-[11px] text-outline">Rekomenduojama: PNG, JPG (maks. 10MB)</p>
             </div>
 
             <%# Ghost silhouette %>

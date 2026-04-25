@@ -1,0 +1,41 @@
+<%
+  step_name   = step["name"]
+  step_status = step["status"]
+  step_detail = step["detail"] || {}
+
+  label       = I18n.t("visualizations.steps.#{step_name}.label", default: step_name.humanize)
+  detail_key  = "visualizations.steps.#{step_name}.detail"
+  detail_text = if step_detail.present? && I18n.exists?(detail_key)
+    I18n.t(detail_key, **step_detail.symbolize_keys)
+  end
+
+  time_str = begin
+    Time.iso8601(step["at"]).strftime("%H:%M")
+  rescue
+    nil
+  end
+%>
+<div id="visualization-step-<%= step_name %>"
+     class="flex items-center gap-3 rounded-xl px-4 py-3 transition-colors
+            <%= step_status == "running" ? "bg-primary/5" : "bg-surface-container-low" %>">
+
+  <div class="w-7 h-7 rounded-full flex items-center justify-center shrink-0"
+       style="background-color: <%= step_status == "running" ? "#0053da" : "#1a8e1a" %>">
+    <span class="material-symbols-outlined text-white<%= " animate-spin" if step_status == "running" %>"
+          style="font-size: 14px; font-variation-settings: 'FILL' 1;">
+      <%= step_status == "running" ? "autorenew" : "check" %>
+    </span>
+  </div>
+
+  <div class="flex-1 min-w-0">
+    <p class="font-label text-xs font-semibold text-on-surface"><%= label %></p>
+    <% if detail_text.present? %>
+      <p class="font-label text-[10px] text-on-surface-variant truncate"><%= detail_text %></p>
+    <% end %>
+  </div>
+
+  <% if time_str %>
+    <span class="font-label text-[10px] text-outline shrink-0"><%= time_str %></span>
+  <% end %>
+
+</div>

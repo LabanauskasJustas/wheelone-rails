@@ -69,7 +69,10 @@ class Account::CarsController < Account::ApplicationController
   end
 
   def process_params(strong_params)
-    strong_params.delete(:photo) if strong_params[:photo].blank?
+    photo = strong_params[:photo]
+    unless photo.is_a?(ActionDispatch::Http::UploadedFile) && photo.size.positive?
+      strong_params.delete(:photo)
+    end
     # 🚅 super scaffolding will insert processing for new fields above this line.
   end
 end

@@ -45,7 +45,7 @@
                 record: car,
                 show_path: [:account, car],
                 edit_path: can?(:edit, car) ? [:edit, :account, car] : nil,
-                image: car.photo.attached? ? rails_representation_url(car.photo.variant(format: :jpeg)) : nil,
+                image: car.photo.attached? ? rails_representation_url(car.photo.variant(format: :jpeg, saver: { background: [255, 255, 255] })) : nil,
                 title: car.brand,
                 subtitle: [car.model, car.year].compact.join(" · ")
               ) %>

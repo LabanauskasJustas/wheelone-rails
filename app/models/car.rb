@@ -18,7 +18,9 @@ class Car < ApplicationRecord
   # Validations
   validates :brand, presence: true, length: { maximum: 100 }
   validates :model, presence: true, length: { maximum: 100 }
-  validates :year, numericality: { only_integer: true, greater_than: 1885, less_than_or_equal_to: -> { Time.current.year + 1 } }, allow_nil: true
+  validates :year, presence: true, numericality: { only_integer: true, greater_than: 1885, less_than_or_equal_to: -> { Time.current.year + 1 } }
+  validates :body_type, presence: true
+  validate :photo_required_on_create
 
   # Scopes
   scope :search_by_name, ->(q) { where("brand ILIKE :q OR model ILIKE :q", q: "%#{sanitize_sql_like(q)}%") }
@@ -37,5 +39,11 @@ class Car < ApplicationRecord
   def display_name
     parts = [brand, model, year].compact.map(&:to_s).reject(&:empty?)
     parts.join(" ").presence || "Automobilis ##{id}"
+  end
+
+  private
+
+  def photo_required_on_create
+    errors.add(:photo, :blank) if !photo.attached? || photo_removal == "1"
   end
 end

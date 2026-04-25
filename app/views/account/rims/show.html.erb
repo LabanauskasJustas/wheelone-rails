@@ -5,7 +5,7 @@
     <%= cable_ready_updates_for @rim do %>
       <%= render RecordDetailComponent.new(
         title: @rim.display_name,
-        image: @rim.photo.attached? ? rails_representation_url(@rim.photo.variant(format: :jpeg)) : nil,
+        image: @rim.photo.attached? ? rails_representation_url(@rim.photo.variant(format: :jpeg, saver: { background: [255, 255, 255] })) : nil,
         identifier: "ID-#{@rim.id}",
         status: t('.header'),
         stats: [
@@ -18,5 +18,59 @@
       <%# 🚅 super scaffolding will insert new children above this line. %>
     <% end %>
     <% end %>
+
+    <%# ── Visualizations section ──────────────────────────────────── %>
+    <section class="space-y-8 mt-12">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-4">
+          <h3 class="text-2xl font-bold font-headline tracking-tight">Vizualizacijos</h3>
+          <span class="bg-primary text-white px-3 py-1 rounded-full text-xs font-bold font-label"><%= @visualizations.size %></span>
+        </div>
+        <% if can?(:create, Visualization.new(team: @rim.team, rim: @rim)) %>
+          <%= link_to [:new, :account, @rim.team, :visualization],
+                class: "flex items-center gap-2 px-5 py-2.5 bg-surface-container-highest rounded-full text-primary font-bold text-sm font-headline transition-all hover:bg-surface-container-high active:scale-95" do %>
+            <span class="material-symbols-outlined" style="font-size: 18px;">add_circle</span>
+            Sukurti vizualizaciją
+          <% end %>
+        <% end %>
+      </div>
+
+      <% status_colors = { "pending" => "gray", "processing" => "yellow", "ready" => "green", "failed" => "red" } %>
+
+      <% if @visualizations.any? %>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <% @visualizations.each do |viz| %>
+            <%= render RecordCardComponent.new(
+              record: viz,
+              show_path: [:account, viz],
+              delete_path: can?(:destroy, viz) ? [:account, viz] : nil,
+              delete_confirm: t('visualizations.buttons.confirmations.destroy', model_locales(viz)),
+              image: viz.result_image.attached? ? rails_blob_url(viz.result_image) : nil,
+              title: viz.display_name,
+              badge: t("visualizations.fields.status.options.#{viz.status}"),
+              badge_color: status_colors[viz.status],
+              stats: [
+                { label: "Automobilis", value: viz.car.display_name },
+                { label: "Sukurta",     value: l(viz.created_at.to_date, format: :long) }
+              ]
+            ) %>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="border-2 border-dashed border-surface-container-highest rounded-lg flex flex-col items-center justify-center p-8 bg-surface-container-low/30 hover:bg-surface-container-low/50 transition-all min-h-[400px]">
+          <div class="w-20 h-20 rounded-full bg-surface-container flex items-center justify-center mb-6">
+            <span class="material-symbols-outlined text-4xl text-outline">image_search</span>
+          </div>
+          <h4 class="text-xl font-bold font-headline mb-2 text-on-surface">Vizualizacijų nėra</h4>
+          <p class="text-sm text-outline text-center mb-8 max-w-[200px]">Pradėkite kurti naujas vizualizacijas su šiuo ratlankiu.</p>
+          <% if can?(:create, Visualization.new(team: @rim.team, rim: @rim)) %>
+            <%= link_to [:new, :account, @rim.team, :visualization],
+                  class: "primary-gradient text-white px-8 py-3 rounded-full font-bold font-headline transition-transform active:scale-95 shadow-md shadow-primary/10" do %>
+              Sukurti
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+    </section>
   <% end %>
 <% end %>

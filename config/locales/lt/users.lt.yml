@@ -166,5 +166,6 @@ lt:
         password: *password
         password_confirmation: *password_confirmation
         current_password: Dabartinis slaptažodis
+        remember_me: Prisiminti mane
         created_at: *created_at
         updated_at: *updated_at

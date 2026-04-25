@@ -2,28 +2,44 @@
   <% page.title t('.section') %>
   <% page.body do %>
     <%= turbo_frame_tag "modal" do %>
-    <%= cable_ready_updates_for @visualization do %>
-      <%= render RecordDetailComponent.new(
-        title: @visualization.display_name,
-        image: @visualization.result_image.attached? ? rails_blob_url(@visualization.result_image) : nil,
-        badge: t("visualizations.fields.status.options.#{@visualization.status}"),
-        identifier: "ID-#{@visualization.id}",
-        status: t("visualizations.fields.status.options.#{@visualization.status}"),
-        raw_status: @visualization.status,
-        loading: @visualization.processing?,
-        full_photo: @visualization.result_image.attached?,
-        retry_path: @visualization.failed? && can?(:update, @visualization) ? retry_account_visualization_path(@visualization) : nil,
-        stats: [
-          { label: t('.fields.car.heading'),        value: @visualization.car.display_name },
-          { label: t('.fields.rim.heading'),         value: @visualization.rim.display_name },
-          { label: t('.fields.created_at.heading'),  value: l(@visualization.created_at.to_date, format: :long) }
-        ],
-        edit_path: can?(:edit, @visualization) ? [:edit, :account, @visualization] : nil,
-        delete_path: can?(:destroy, @visualization) ? [:account, @visualization] : nil,
-        delete_confirm: t('.buttons.confirmations.destroy', model_locales(@visualization))
-      ) %>
-      <%# 🚅 super scaffolding will insert new children above this line. %>
-    <% end %>
+      <%# Steps channel subscription lives outside the CableReady block so it survives re-renders %>
+      <%= turbo_stream_from "visualization_#{@visualization.id}_steps" %>
+
+      <%= cable_ready_updates_for @visualization do %>
+        <%= render RecordDetailComponent.new(
+          title: @visualization.display_name,
+          image: @visualization.result_image.attached? ? rails_blob_url(@visualization.result_image) : nil,
+          badge: t("visualizations.fields.status.options.#{@visualization.status}"),
+          identifier: "ID-#{@visualization.id}",
+          status: t("visualizations.fields.status.options.#{@visualization.status}"),
+          raw_status: @visualization.status,
+          loading: @visualization.processing?,
+          full_photo: @visualization.result_image.attached?,
+          retry_path: @visualization.failed? && can?(:update, @visualization) ? retry_account_visualization_path(@visualization) : nil,
+          stats: [
+            { label: t('.fields.car.heading'),        value: @visualization.car.display_name },
+            { label: t('.fields.rim.heading'),         value: @visualization.rim.display_name },
+            { label: t('.fields.created_at.heading'),  value: l(@visualization.created_at.to_date, format: :long) }
+          ],
+          delete_path: can?(:destroy, @visualization) ? [:account, @visualization] : nil,
+          delete_confirm: t('.buttons.confirmations.destroy', model_locales(@visualization))
+        ) %>
+        <%# 🚅 super scaffolding will insert new children above this line. %>
+
+        <% if @visualization.processing? || @visualization.processing_steps.any? %>
+          <div class="mt-6 bg-[#f2f4f6] rounded-2xl p-6">
+            <h3 class="font-headline text-sm font-semibold text-on-surface-variant uppercase tracking-widest mb-4 flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary" style="font-size: 16px;">account_tree</span>
+              <%= t('.pipeline.heading') %>
+            </h3>
+            <div id="visualization-steps" class="space-y-2">
+              <% @visualization.processing_steps.each do |step| %>
+                <%= render "account/visualizations/processing_step", step: step %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
     <% end %>
   <% end %>
 <% end %>

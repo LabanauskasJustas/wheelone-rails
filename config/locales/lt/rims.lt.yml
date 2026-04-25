@@ -14,15 +14,15 @@ lt:
           id:
             heading: Ratlankio ID
           name:
-            _: Pavadinimas
-            api_description: Pavadinimas
-            api_title: Pavadinimas
-            heading: Pavadinimas
-            label: Pavadinimas
-          brand:
             _: Gamintojas
+            api_description: Gamintojas
+            api_title: Gamintojas
             heading: Gamintojas
             label: Gamintojas
+          brand:
+            _: Modelis
+            heading: Modelis
+            label: Modelis
           diameter:
             _: Skersmuo
             heading: Skersmuo
@@ -32,9 +32,10 @@ lt:
             heading: Plotis
             label: Plotis
           finish:
-            _: Apdaila
-            heading: Apdaila
-            label: Apdaila
+            _: Spalva
+            heading: Spalva
+            label: Spalva
+            placeholder: "pvz. Juoda, Sidabrinė, Raudona"
           photo:
             _: Nuotrauka
             api_description: Nuotrauka
@@ -86,11 +87,11 @@ lt:
             id:
               heading: Ratlankio ID
             name:
-              _: Pavadinimas
-              api_description: Pavadinimas
-              api_title: Pavadinimas
-              heading: Pavadinimas
-              label: Pavadinimas
+              _: Gamintojas
+              api_description: Gamintojas
+              api_title: Gamintojas
+              heading: Gamintojas
+              label: Gamintojas
             photo:
               _: Nuotrauka
               api_description: Nuotrauka
@@ -113,15 +114,15 @@ lt:
         id:
           heading: Ratlankio ID
         name:
-          _: Pavadinimas
-          api_description: Pavadinimas
-          api_title: Pavadinimas
-          heading: Pavadinimas
-          label: Pavadinimas
-        brand:
           _: Gamintojas
+          api_description: Gamintojas
+          api_title: Gamintojas
           heading: Gamintojas
           label: Gamintojas
+        brand:
+          _: Modelis
+          heading: Modelis
+          label: Modelis
         diameter:
           _: Skersmuo
           heading: Skersmuo
@@ -131,9 +132,9 @@ lt:
           heading: Plotis
           label: Plotis
         finish:
-          _: Apdaila
-          heading: Apdaila
-          label: Apdaila
+          _: Spalva
+          heading: Spalva
+          label: Spalva
         photo:
           _: Nuotrauka
           api_description: Nuotrauka
@@ -166,15 +167,15 @@ lt:
           id:
             heading: Ratlankio ID
           name:
-            _: Pavadinimas
-            api_description: Pavadinimas
-            api_title: Pavadinimas
-            heading: Pavadinimas
-            label: Pavadinimas
-          brand:
             _: Gamintojas
+            api_description: Gamintojas
+            api_title: Gamintojas
             heading: Gamintojas
             label: Gamintojas
+          brand:
+            _: Modelis
+            heading: Modelis
+            label: Modelis
           diameter:
             _: Skersmuo
             heading: Skersmuo
@@ -184,9 +185,10 @@ lt:
             heading: Plotis
             label: Plotis
           finish:
-            _: Apdaila
-            heading: Apdaila
-            label: Apdaila
+            _: Spalva
+            heading: Spalva
+            label: Spalva
+            placeholder: "pvz. Juoda, Sidabrinė, Raudona"
           photo:
             _: Nuotrauka
             api_description: Nuotrauka
@@ -225,7 +227,7 @@ lt:
           update: Atnaujinti ratlankį
         contexts:
           team:
-            description: Žemiau pateikiamas ratlankių sąrašas, pridėtas komandai %{team_name}.
+            description: Žemiau pateikiami įkelti ratlankiai.
             description_empty: Komandai %{team_name} dar nepridėta jokių ratlankių.
             header: Ratlankiai
         fields:
@@ -236,15 +238,15 @@ lt:
           id:
             heading: Ratlankio ID
           name:
-            _: Pavadinimas
-            api_description: Pavadinimas
-            api_title: Pavadinimas
-            heading: Pavadinimas
-            label: Pavadinimas
-          brand:
             _: Gamintojas
+            api_description: Gamintojas
+            api_title: Gamintojas
             heading: Gamintojas
             label: Gamintojas
+          brand:
+            _: Modelis
+            heading: Modelis
+            label: Modelis
           diameter:
             _: Skersmuo
             heading: Skersmuo
@@ -254,9 +256,10 @@ lt:
             heading: Plotis
             label: Plotis
           finish:
-            _: Apdaila
-            heading: Apdaila
-            label: Apdaila
+            _: Spalva
+            heading: Spalva
+            label: Spalva
+            placeholder: "pvz. Juoda, Sidabrinė, Raudona"
           photo:
             _: Nuotrauka
             api_description: Nuotrauka
@@ -296,11 +299,11 @@ lt:
             id:
               heading: Ratlankio ID
             name:
-              _: Pavadinimas
-              api_description: Pavadinimas
-              api_title: Pavadinimas
-              heading: Pavadinimas
-              label: Pavadinimas
+              _: Gamintojas
+              api_description: Gamintojas
+              api_title: Gamintojas
+              heading: Gamintojas
+              label: Gamintojas
             photo:
               _: Nuotrauka
               api_description: Nuotrauka
@@ -352,15 +355,15 @@ lt:
           id:
             heading: Ratlankio ID
           name:
-            _: Pavadinimas
-            api_description: Pavadinimas
-            api_title: Pavadinimas
-            heading: Pavadinimas
-            label: Pavadinimas
-          brand:
             _: Gamintojas
+            api_description: Gamintojas
+            api_title: Gamintojas
             heading: Gamintojas
             label: Gamintojas
+          brand:
+            _: Modelis
+            heading: Modelis
+            label: Modelis
           diameter:
             _: Skersmuo
             heading: Skersmuo
@@ -370,9 +373,10 @@ lt:
             heading: Plotis
             label: Plotis
           finish:
-            _: Apdaila
-            heading: Apdaila
-            label: Apdaila
+            _: Spalva
+            heading: Spalva
+            label: Spalva
+            placeholder: "pvz. Juoda, Sidabrinė, Raudona"
           photo:
             _: Nuotrauka
             api_description: Nuotrauka
@@ -392,7 +396,7 @@ lt:
     attributes:
       rim:
         created_at: Pridėta
-        name: Pavadinimas
+        name: Gamintojas
         photo: Nuotrauka
         updated_at: Atnaujinta
   rims:
@@ -408,15 +412,15 @@ lt:
         id:
           heading: Ratlankio ID
         name:
-          _: Pavadinimas
-          api_description: Pavadinimas
-          api_title: Pavadinimas
-          heading: Pavadinimas
-          label: Pavadinimas
-        brand:
           _: Gamintojas
+          api_description: Gamintojas
+          api_title: Gamintojas
           heading: Gamintojas
           label: Gamintojas
+        brand:
+          _: Modelis
+          heading: Modelis
+          label: Modelis
         diameter:
           _: Skersmuo
           heading: Skersmuo
@@ -426,9 +430,9 @@ lt:
           heading: Plotis
           label: Plotis
         finish:
-          _: Apdaila
-          heading: Apdaila
-          label: Apdaila
+          _: Spalva
+          heading: Spalva
+          label: Spalva
         photo:
           _: Nuotrauka
           api_description: Nuotrauka
@@ -480,15 +484,15 @@ lt:
           id:
             heading: Ratlankio ID
           name:
-            _: Pavadinimas
-            api_description: Pavadinimas
-            api_title: Pavadinimas
-            heading: Pavadinimas
-            label: Pavadinimas
-          brand:
             _: Gamintojas
+            api_description: Gamintojas
+            api_title: Gamintojas
             heading: Gamintojas
             label: Gamintojas
+          brand:
+            _: Modelis
+            heading: Modelis
+            label: Modelis
           diameter:
             _: Skersmuo
             heading: Skersmuo
@@ -498,9 +502,10 @@ lt:
             heading: Plotis
             label: Plotis
           finish:
-            _: Apdaila
-            heading: Apdaila
-            label: Apdaila
+            _: Spalva
+            heading: Spalva
+            label: Spalva
+            placeholder: "pvz. Juoda, Sidabrinė, Raudona"
           photo:
             _: Nuotrauka
             api_description: Nuotrauka
@@ -523,11 +528,11 @@ lt:
       id:
         heading: Ratlankio ID
       name:
-        _: Pavadinimas
-        api_description: Pavadinimas
-        api_title: Pavadinimas
-        heading: Pavadinimas
-        label: Pavadinimas
+        _: Gamintojas
+        api_description: Gamintojas
+        api_title: Gamintojas
+        heading: Gamintojas
+        label: Gamintojas
       photo:
         _: Nuotrauka
         api_description: Nuotrauka
@@ -560,15 +565,15 @@ lt:
         id:
           heading: Ratlankio ID
         name:
-          _: Pavadinimas
-          api_description: Pavadinimas
-          api_title: Pavadinimas
-          heading: Pavadinimas
-          label: Pavadinimas
-        brand:
           _: Gamintojas
+          api_description: Gamintojas
+          api_title: Gamintojas
           heading: Gamintojas
           label: Gamintojas
+        brand:
+          _: Modelis
+          heading: Modelis
+          label: Modelis
         diameter:
           _: Skersmuo
           heading: Skersmuo
@@ -578,9 +583,9 @@ lt:
           heading: Plotis
           label: Plotis
         finish:
-          _: Apdaila
-          heading: Apdaila
-          label: Apdaila
+          _: Spalva
+          heading: Spalva
+          label: Spalva
         photo:
           _: Nuotrauka
           api_description: Nuotrauka
@@ -607,7 +612,7 @@ lt:
         update: Atnaujinti ratlankį
       contexts:
         team:
-          description: Žemiau pateikiamas ratlankių sąrašas, pridėtas komandai %{team_name}.
+          description: Žemiau pateikiami įkelti ratlankiai.
           description_empty: Komandai %{team_name} dar nepridėta jokių ratlankių.
           header: Ratlankiai
       fields:
@@ -618,15 +623,15 @@ lt:
         id:
           heading: Ratlankio ID
         name:
-          _: Pavadinimas
-          api_description: Pavadinimas
-          api_title: Pavadinimas
-          heading: Pavadinimas
-          label: Pavadinimas
-        brand:
           _: Gamintojas
+          api_description: Gamintojas
+          api_title: Gamintojas
           heading: Gamintojas
           label: Gamintojas
+        brand:
+          _: Modelis
+          heading: Modelis
+          label: Modelis
         diameter:
           _: Skersmuo
           heading: Skersmuo
@@ -636,9 +641,9 @@ lt:
           heading: Plotis
           label: Plotis
         finish:
-          _: Apdaila
-          heading: Apdaila
-          label: Apdaila
+          _: Spalva
+          heading: Spalva
+          label: Spalva
         photo:
           _: Nuotrauka
           api_description: Nuotrauka
@@ -678,15 +683,15 @@ lt:
           id:
             heading: Ratlankio ID
           name:
-            _: Pavadinimas
-            api_description: Pavadinimas
-            api_title: Pavadinimas
-            heading: Pavadinimas
-            label: Pavadinimas
-          brand:
             _: Gamintojas
+            api_description: Gamintojas
+            api_title: Gamintojas
             heading: Gamintojas
             label: Gamintojas
+          brand:
+            _: Modelis
+            heading: Modelis
+            label: Modelis
           diameter:
             _: Skersmuo
             heading: Skersmuo
@@ -696,9 +701,10 @@ lt:
             heading: Plotis
             label: Plotis
           finish:
-            _: Apdaila
-            heading: Apdaila
-            label: Apdaila
+            _: Spalva
+            heading: Spalva
+            label: Spalva
+            placeholder: "pvz. Juoda, Sidabrinė, Raudona"
           photo:
             _: Nuotrauka
             api_description: Nuotrauka
@@ -750,15 +756,15 @@ lt:
         id:
           heading: Ratlankio ID
         name:
-          _: Pavadinimas
-          api_description: Pavadinimas
-          api_title: Pavadinimas
-          heading: Pavadinimas
-          label: Pavadinimas
-        brand:
           _: Gamintojas
+          api_description: Gamintojas
+          api_title: Gamintojas
           heading: Gamintojas
           label: Gamintojas
+        brand:
+          _: Modelis
+          heading: Modelis
+          label: Modelis
         diameter:
           _: Skersmuo
           heading: Skersmuo
@@ -768,9 +774,9 @@ lt:
           heading: Plotis
           label: Plotis
         finish:
-          _: Apdaila
-          heading: Apdaila
-          label: Apdaila
+          _: Spalva
+          heading: Spalva
+          label: Spalva
         photo:
           _: Nuotrauka
           api_description: Nuotrauka

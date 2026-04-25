@@ -49,6 +49,16 @@ if defined?(Api::V1::ApplicationController)
         return render json: {error: "visualization_id mismatch"}, status: :unprocessable_entity
       end
 
+      if params[:event] == "step"
+        name   = params[:name].to_s
+        status = params[:status].to_s
+        detail = params[:detail].try(:to_unsafe_h) || {}
+        if name.present? && %w[running completed].include?(status)
+          visualization.append_step(name, status, detail)
+        end
+        return head :no_content
+      end
+
       case params[:status]
       when "completed"
         VisualizationFetchImageJob.perform_later(visualization.id)

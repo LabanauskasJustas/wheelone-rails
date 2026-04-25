@@ -73,7 +73,7 @@ lt:
       contexts:
         team:
           header: Vizualizacijos
-          description: Žemiau pateikiamos %{team_name} vizualizacijos.
+          description: Žemiau pateikiamos sugeneruotos vizualizacijos.
           description_empty: "%{team_name} dar nėra vizualizacijų."
       fields: *fields
       buttons: *buttons
@@ -82,6 +82,8 @@ lt:
       header: Vizualizacijos informacija
       description: Žemiau pateikiama %{visualization_name} informacija.
       manage_description: Taip pat galite atnaujinti šiuos duomenis arba visiškai pašalinti %{visualization_name} iš %{team_name}.
+      pipeline:
+        heading: Apdorojimo eiga
       fields: *fields
       buttons: *buttons
     form: &form
@@ -97,6 +99,17 @@ lt:
       header: Redaguoti vizualizacijos duomenis
       description: Žemiau galite atnaujinti %{visualization_name} duomenis ar nustatymus.
       form: *form
+    steps:
+      preprocess:
+        label: Ruošiamos nuotraukos apdorojimui
+      detect_car:
+        label: Aptinkamas automobilis nuotraukoje
+      detect_wheels:
+        label: Aptinkamos automobilio ratų pozicijos
+      analyze_rim:
+        label: Nustatomi ratlankių parametrai
+      composite:
+        label: Apdorojama vizualizacija
     notifications:
       created: Vizualizacija sėkmingai sukurta.
       updated: Vizualizacija sėkmingai atnaujinta.

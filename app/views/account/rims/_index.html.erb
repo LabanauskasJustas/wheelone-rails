@@ -45,7 +45,7 @@
                 record: rim,
                 show_path: [:account, rim],
                 edit_path: can?(:edit, rim) ? [:edit, :account, rim] : nil,
-                image: rim.photo.attached? ? rails_representation_url(rim.photo.variant(format: :jpeg)) : nil,
+                image: rim.photo.attached? ? rails_representation_url(rim.photo.variant(format: :jpeg, saver: { background: [255, 255, 255] })) : nil,
                 title: rim.display_name
               ) %>
             <% end %>

@@ -251,7 +251,7 @@ lt:
           update: Atnaujinti automobilį
         contexts:
           team:
-            description: Žemiau pateikiamas automobilių sąrašas, pridėtas komandai %{team_name}.
+            description: Žemiau pateikiami įkelti automobiliai.
             description_empty: Komandai %{team_name} dar nepridėta jokių automobilių.
             header: Automobiliai
         fields:
@@ -672,7 +672,7 @@ lt:
         update: Atnaujinti automobilį
       contexts:
         team:
-          description: Žemiau pateikiamas automobilių sąrašas, pridėtas komandai %{team_name}.
+          description: Žemiau pateikiami įkelti automobiliai.
           description_empty: Komandai %{team_name} dar nepridėta jokių automobilių.
           header: Automobiliai
       fields:

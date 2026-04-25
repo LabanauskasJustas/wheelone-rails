@@ -51,7 +51,8 @@
               <%= render RecordCardComponent.new(
                 record: visualization,
                 show_path: [:account, visualization],
-                edit_path: can?(:edit, visualization) ? [:edit, :account, visualization] : nil,
+                delete_path: can?(:destroy, visualization) ? [:account, visualization] : nil,
+                delete_confirm: t(".buttons.confirmations.destroy", visualization_name: visualization.display_name),
                 image: visualization.result_image.attached? ? rails_blob_url(visualization.result_image) : nil,
                 title: visualization.display_name,
                 badge: t(".fields.status.options.#{visualization.status}"),

@@ -1,0 +1,50 @@
+lt:
+  date:
+    formats:
+      default: "%Y-%m-%d"
+      short: "%m-%d"
+      long: "%Y m. %B %d d."
+    day_names:
+      - sekmadienis
+      - pirmadienis
+      - antradienis
+      - trečiadienis
+      - ketvirtadienis
+      - penktadienis
+      - šeštadienis
+    abbr_day_names:
+      - Sk
+      - Pr
+      - An
+      - Tr
+      - Kt
+      - Pn
+      - Št
+    month_names:
+      - ~
+      - sausis
+      - vasaris
+      - kovas
+      - balandis
+      - gegužė
+      - birželis
+      - liepa
+      - rugpjūtis
+      - rugsėjis
+      - spalis
+      - lapkritis
+      - gruodis
+    abbr_month_names:
+      - ~
+      - sau
+      - vas
+      - kov
+      - bal
+      - geg
+      - bir
+      - lie
+      - rgp
+      - rgs
+      - spa
+      - lap
+      - grd

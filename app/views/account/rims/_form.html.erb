@@ -2,7 +2,7 @@
 
 <%= form_with model: rim, url: (rim.persisted? ? [:account, rim] : [:account, @team, :rims]) do |form| %>
   <%= render "shared/limits/form", form: form, cancel_path: cancel_path do %>
-    <%= render 'account/shared/forms/errors', form: form %>
+    <div id="rim-form-errors"><%= render 'account/shared/forms/errors', form: form %></div>
 
     <div class="glass-card rounded-[2rem] shadow-[0px_24px_48px_rgba(0,62,167,0.05)] p-8 md:p-12">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -18,20 +18,28 @@
 
             <%# Name — full width %>
             <div class="space-y-2">
-              <%= form.label :name, t('.fields.name.label'),
-                    class: "block font-label text-[10px] uppercase tracking-widest text-outline pl-1" %>
+              <%= form.label :name, class: "block font-label text-[10px] uppercase tracking-widest text-outline pl-1" do %>
+                <%= t('.fields.name.label') %> <span class="text-red-500">*</span>
+              <% end %>
               <%= form.text_field :name,
                     autofocus: true,
-                    class: "w-full !bg-[#e0e3e5] border-0 ring-0 shadow-none rounded-2xl px-4 py-3.5 focus:ring-2 focus:ring-primary/20 focus:ring-offset-0 focus:border-0 transition-all outline-none text-on-surface placeholder:text-outline/50" %>
+                    class: "w-full !bg-[#e0e3e5] border-0 ring-0 shadow-none rounded-2xl px-4 py-3.5 focus:ring-2 focus:ring-primary/20 focus:ring-offset-0 focus:border-0 transition-all outline-none text-on-surface placeholder:text-outline/50 #{'ring-2 ring-red-400' if rim.errors[:name].any?}" %>
+              <% if rim.errors[:name].any? %>
+                <p class="text-red-500 text-xs pl-1"><%= rim.errors[:name].first %></p>
+              <% end %>
             </div>
 
             <%# Brand %>
             <div class="space-y-2">
-              <%= form.label :brand, t('.fields.brand.label'),
-                    class: "block font-label text-[10px] uppercase tracking-widest text-outline pl-1" %>
+              <%= form.label :brand, class: "block font-label text-[10px] uppercase tracking-widest text-outline pl-1" do %>
+                <%= t('.fields.brand.label') %> <span class="text-red-500">*</span>
+              <% end %>
               <%= form.text_field :brand,
-                    placeholder: "e.g. BBS, OZ Racing",
-                    class: "w-full !bg-[#e0e3e5] border-0 ring-0 shadow-none rounded-2xl px-4 py-3.5 focus:ring-2 focus:ring-primary/20 focus:ring-offset-0 focus:border-0 transition-all outline-none text-on-surface placeholder:text-outline/50" %>
+                    placeholder: "e.g. RS, TE37",
+                    class: "w-full !bg-[#e0e3e5] border-0 ring-0 shadow-none rounded-2xl px-4 py-3.5 focus:ring-2 focus:ring-primary/20 focus:ring-offset-0 focus:border-0 transition-all outline-none text-on-surface placeholder:text-outline/50 #{'ring-2 ring-red-400' if rim.errors[:brand].any?}" %>
+              <% if rim.errors[:brand].any? %>
+                <p class="text-red-500 text-xs pl-1"><%= rim.errors[:brand].first %></p>
+              <% end %>
             </div>
 
             <%# Diameter + Width side by side %>
@@ -56,18 +64,22 @@
 
             <%# Finish %>
             <div class="space-y-2">
-              <%= form.label :finish, t('.fields.finish.label'),
-                    class: "block font-label text-[10px] uppercase tracking-widest text-outline pl-1" %>
+              <%= form.label :finish, class: "block font-label text-[10px] uppercase tracking-widest text-outline pl-1" do %>
+                <%= t('.fields.finish.label') %> <span class="text-red-500">*</span>
+              <% end %>
               <%= form.text_field :finish,
-                    placeholder: "e.g. Gloss Black, Brushed Silver",
-                    class: "w-full !bg-[#e0e3e5] border-0 ring-0 shadow-none rounded-2xl px-4 py-3.5 focus:ring-2 focus:ring-primary/20 focus:ring-offset-0 focus:border-0 transition-all outline-none text-on-surface placeholder:text-outline/50" %>
+                    placeholder: t('.fields.finish.placeholder'),
+                    class: "w-full !bg-[#e0e3e5] border-0 ring-0 shadow-none rounded-2xl px-4 py-3.5 focus:ring-2 focus:ring-primary/20 focus:ring-offset-0 focus:border-0 transition-all outline-none text-on-surface placeholder:text-outline/50 #{'ring-2 ring-red-400' if rim.errors[:finish].any?}" %>
+              <% if rim.errors[:finish].any? %>
+                <p class="text-red-500 text-xs pl-1"><%= rim.errors[:finish].first %></p>
+              <% end %>
             </div>
 
           </div>
         </section>
 
         <%# ── Right column: photo ───────────────────────────────────── %>
-        <% photo_attached = rim.persisted? && rim.photo.attached? %>
+        <% photo_attached = rim.persisted? && rim.photo.attached? && rim.photo.blob.persisted? %>
         <section class="bg-[#f2f4f6] rounded-2xl p-6 space-y-6 flex flex-col"
                  id="rim-photo-section">
           <%= render PhotoHintComponent.new(
@@ -83,8 +95,17 @@
 
           <header class="flex items-center gap-3">
             <span class="material-symbols-outlined text-primary text-2xl">photo_camera</span>
-            <h2 class="font-headline text-xl font-semibold tracking-tight text-on-surface">Ratlankio nuotrauka</h2>
+            <h2 class="font-headline text-xl font-semibold tracking-tight text-on-surface">
+              Ratlankio nuotrauka <span class="text-red-500 text-base">*</span>
+            </h2>
           </header>
+
+          <% if rim.errors[:photo].any? %>
+            <p id="rim-photo-error" class="text-red-500 text-xs font-label flex items-center gap-1">
+              <span class="material-symbols-outlined" style="font-size: 14px;">error</span>
+              <%= rim.errors[:photo].first %>
+            </p>
+          <% end %>
 
           <%# Hidden file input — always present %>
           <%= form.file_field :photo, id: "rim_photo", accept: "image/*", class: "sr-only" %>
@@ -93,6 +114,7 @@
             (function() {
               function setupPhotoPreview() {
                 var input    = document.getElementById("rim_photo");
+                var removal  = document.getElementById("rim_photo_removal");
                 var filled   = document.getElementById("rim-photo-filled");
                 var dropzone = document.getElementById("rim-photo-dropzone");
                 var preview  = document.getElementById("rim-photo-preview");
@@ -102,15 +124,36 @@
                 input.addEventListener("change", function() {
                   var file = input.files[0];
                   if (!file) return;
+                  if (removal) removal.checked = false;
                   preview.src = URL.createObjectURL(file);
                   filename.textContent = file.name;
                   filled.classList.remove("hidden");
                   filled.classList.add("flex");
                   dropzone.classList.add("hidden");
                   dropzone.classList.remove("flex");
+                  var photoError = document.getElementById("rim-photo-error");
+                  if (photoError) photoError.remove();
+                  var banner = document.getElementById("rim-form-errors");
+                  if (banner) banner.innerHTML = "";
                 });
+                if (removal) {
+                  removal.addEventListener("change", function() {
+                    if (removal.checked) {
+                      filled.classList.add("hidden");
+                      filled.classList.remove("flex");
+                      dropzone.classList.remove("hidden");
+                      dropzone.classList.add("flex");
+                    } else {
+                      filled.classList.remove("hidden");
+                      filled.classList.add("flex");
+                      dropzone.classList.add("hidden");
+                      dropzone.classList.remove("flex");
+                    }
+                  });
+                }
               }
               document.addEventListener("turbo:load", setupPhotoPreview);
+              document.addEventListener("turbo:render", setupPhotoPreview);
               document.addEventListener("DOMContentLoaded", setupPhotoPreview);
             })();
           </script>
@@ -119,7 +162,7 @@
           <div id="rim-photo-filled"
                class="flex-grow flex-col gap-4 <%= photo_attached ? 'flex' : 'hidden' %>">
             <img id="rim-photo-preview"
-                 src="<%= photo_attached ? rails_representation_url(rim.photo.variant(format: :jpeg)) : '' %>"
+                 src="<%= photo_attached ? rails_representation_url(rim.photo.variant(format: :jpeg, saver: { background: [255, 255, 255] })) : '' %>"
                  class="h-56 w-full object-cover rounded-2xl" />
             <p id="rim-photo-filename"
                class="font-label text-[11px] text-outline truncate"><%= photo_attached ? rim.photo.filename : '' %></p>

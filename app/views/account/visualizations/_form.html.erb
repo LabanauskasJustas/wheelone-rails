@@ -36,7 +36,7 @@
             <%= form.select :rim_id,
                   @visualization.valid_rims.map { |rim|
                     [rim.label_string, rim.id, {
-                      data: { photo_url: rim.photo.attached? ? rails_representation_url(rim.photo.variant(format: :jpeg)) : "" }
+                      data: { photo_url: rim.photo.attached? ? rails_representation_url(rim.photo.variant(format: :jpeg, saver: { background: [255, 255, 255] })) : "" }
                     }]
                   },
                   { include_blank: "— pasirinkite —", selected: visualization.rim_id },
@@ -77,7 +77,7 @@
             <%= form.select :car_id,
                   @visualization.valid_cars.map { |car|
                     [car.label_string, car.id, {
-                      data: { photo_url: car.photo.attached? ? rails_representation_url(car.photo.variant(format: :jpeg)) : "" }
+                      data: { photo_url: car.photo.attached? ? rails_representation_url(car.photo.variant(format: :jpeg, saver: { background: [255, 255, 255] })) : "" }
                     }]
                   },
                   { include_blank: "— pasirinkite —", selected: visualization.car_id },

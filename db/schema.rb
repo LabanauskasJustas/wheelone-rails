@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_04_06_161356) do
+ActiveRecord::Schema[8.0].define(version: 2026_04_23_120000) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -308,6 +308,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_04_06_161356) do
     t.string "status", default: "pending", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.jsonb "processing_steps", default: [], null: false
     t.index ["car_id"], name: "index_visualizations_on_car_id"
     t.index ["rim_id"], name: "index_visualizations_on_rim_id"
     t.index ["team_id"], name: "index_visualizations_on_team_id"

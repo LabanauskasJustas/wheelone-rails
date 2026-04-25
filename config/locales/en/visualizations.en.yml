@@ -84,6 +84,8 @@ en:
       header: Visualization Details
       description: Below are the details we have for %{visualization_name}.
       manage_description: You'll also find options for updating these details or removing %{visualization_name} from %{team_name} entirely.
+      pipeline:
+        heading: Processing Pipeline
       fields: *fields
       buttons: *buttons
     form: &form
@@ -99,6 +101,17 @@ en:
       header: Edit Visualization Details
       description: You can update the details or settings for %{visualization_name} below.
       form: *form
+    steps:
+      preprocess:
+        label: Preparing images for processing
+      detect_car:
+        label: Detecting vehicle in photo
+      detect_wheels:
+        label: Detecting wheel positions
+      analyze_rim:
+        label: Determining rim parameters
+      composite:
+        label: Processing visualization
     notifications:
       created: Visualization was successfully created.
       updated: Visualization was successfully updated.

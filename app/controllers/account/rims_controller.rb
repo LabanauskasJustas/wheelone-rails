@@ -12,6 +12,7 @@ class Account::RimsController < Account::ApplicationController
   # GET /account/rims/:id
   # GET /account/rims/:id.json
   def show
+    @visualizations = @rim.visualizations.accessible_by(current_ability).recent
     delegate_json_to_api
   end
 
@@ -68,6 +69,10 @@ class Account::RimsController < Account::ApplicationController
   end
 
   def process_params(strong_params)
+    photo = strong_params[:photo]
+    unless photo.is_a?(ActionDispatch::Http::UploadedFile) && photo.size.positive?
+      strong_params.delete(:photo)
+    end
     # 🚅 super scaffolding will insert processing for new fields above this line.
   end
 end
